@@ -246,22 +246,37 @@ a { color: inherit; }
   max-width: 24rem;
 }
 /* nabídka kormidlování nakláněním, ukáže se jen na zařízení, které to umí */
+/* Plné tlačítko, ne obrys: obrys si lidé pletli s popiskem
+   a nebylo jim jasné, že na to mají klepnout. */
 .pristav__naklon {
   pointer-events: auto;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0 auto 0.9rem;
   font-family: var(--font);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 0.5rem 1.1rem;
-  border: 2px solid var(--orange);
+  padding: 0.68rem 1.3rem;
+  border: 0;
   border-radius: 999px;
-  background: transparent;
-  color: var(--orange);
+  background: var(--orange);
+  color: #fff;
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(22, 44, 40, 0.35);
+  animation: lakej 2.4s ease-out infinite;
 }
+.pristav__naklon svg { width: 1.15rem; height: 1.15rem; flex: none; }
+.pristav__naklon:disabled {
+  background: transparent;
+  color: var(--cream);
+  box-shadow: none;
+  animation: none;
+  border: 2px solid rgba(255, 242, 217, 0.45);
+}
+.pristav--reka .pristav__naklon:disabled { color: var(--green); border-color: rgba(31,60,54,.4); }
+@media (prefers-reduced-motion: reduce) { .pristav__naklon { animation: none; } }
 .pristav__naklon[hidden] { display: none; }
-.pristav--reka .pristav__naklon { color: var(--orange); }
 
 .pristav__navod { opacity: 0; transition: opacity 0.35s ease; }
 .pristav__navod[data-vidno="1"] { opacity: 0.85; }
@@ -1580,8 +1595,17 @@ a { color: inherit; }
   </div>
   <div class="pristav__spodek">
     <span class="pristav__hlaska" id="pristav-hlaska" data-vidno="0"></span>
-    <button type="button" class="pristav__naklon" id="pristav-naklon" hidden
-            data-i18n="pristav.naklon">Kormidlovat nakláněním</button>
+    <button type="button" class="pristav__naklon" id="pristav-naklon" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="7" y="2.5" width="10" height="19" rx="2.4" fill="none"
+              stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="18.4" r="1.1" fill="currentColor" />
+        <path d="M3.2 8.6a5 5 0 0 0-1.1 3.4M20.8 8.6a5 5 0 0 1 1.1 3.4"
+              fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" />
+      </svg>
+      <span data-i18n="pristav.naklon">Kormidlovat nakláněním</span>
+    </button>
     <div class="pristav__stitek" id="pristav-stitek" data-vidno="0">
       <p class="pristav__odkud" data-i18n="pristav.odkud">Kam jedeme</p>
       <p class="pristav__misto" id="pristav-misto" data-klic=""></p>
@@ -2805,22 +2829,86 @@ a { color: inherit; }
       ctx.restore();
     }
 
+    /* Na konci plavby se na břehu vynoří kupixawa, ten samý kruhový dům
+       jako v nakreslené vesnici: široká zvonová doška, čupřina na vrcholu
+       a nízká stěna ze světlých kůlů. */
     function kresliVesnici(podil) {
       if (podil <= 0) return;
-      var p = naPlatno(46, osaReky(ujeto + 46) - osaReky(ujeto + KAM_Z));
+      var d = 40;
+      var c = osaReky(ujeto + d) - osaReky(ujeto + KAM_Z);
+      var p = naPlatno(d, c);
       if (!p) return;
-      var m = p[2], v = 9 * m;
+      var m = p[2];
+      var sirka = 9.5 * m, vysStreny = 6.2 * m, vysSteny = 1.5 * m;
+      var cx = p[0], zem = p[1];
+      var okap = zem - vysSteny, vrchol = okap - vysStreny;
+
       ctx.save();
-      ctx.globalAlpha = Math.min(1, podil * 1.5);
-      ctx.fillStyle = LISTY[0];
+      ctx.globalAlpha = Math.min(1, podil * 1.6);
+
+      // stín na zemi
+      ctx.fillStyle = "rgba(40,30,18,0.28)";
       ctx.beginPath();
-      ctx.moveTo(p[0], p[1] - v);
-      ctx.lineTo(p[0] + v * 0.85, p[1]);
-      ctx.lineTo(p[0] - v * 0.85, p[1]);
+      ctx.ellipse(cx, zem + 0.2 * m, sirka * 1.06, 0.5 * m, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // nízká stěna ze světlých kůlů
+      var sw = sirka * 0.8;
+      ctx.fillStyle = "#C9B48A";
+      ctx.fillRect(cx - sw, okap - 0.1 * m, sw * 2, vysSteny + 0.1 * m);
+      ctx.fillStyle = "rgba(80,60,35,0.35)";
+      for (var kx = cx - sw + 0.22 * m; kx < cx + sw; kx += 0.42 * m) {
+        ctx.fillRect(kx, okap, 0.1 * m, vysSteny);
+      }
+      // vchod
+      ctx.fillStyle = "#3A2A1C";
+      ctx.beginPath();
+      ctx.moveTo(cx - 0.85 * m, zem);
+      ctx.lineTo(cx - 0.85 * m, okap + 0.35 * m);
+      ctx.quadraticCurveTo(cx, okap - 0.15 * m, cx + 0.85 * m, okap + 0.35 * m);
+      ctx.lineTo(cx + 0.85 * m, zem);
       ctx.closePath();
       ctx.fill();
-      ctx.fillStyle = STRISKA;
-      ctx.fillRect(p[0] - v * 0.12, p[1] - v * 0.34, v * 0.24, v * 0.34);
+
+      // zvonová doška
+      ctx.fillStyle = MELCINA;
+      ctx.beginPath();
+      ctx.moveTo(cx, vrchol);
+      ctx.bezierCurveTo(cx + sirka * 0.42, vrchol + vysStreny * 0.16,
+                        cx + sirka * 0.9, vrchol + vysStreny * 0.64,
+                        cx + sirka, okap);
+      ctx.lineTo(cx - sirka, okap);
+      ctx.bezierCurveTo(cx - sirka * 0.9, vrchol + vysStreny * 0.64,
+                        cx - sirka * 0.42, vrchol + vysStreny * 0.16,
+                        cx, vrchol);
+      ctx.closePath();
+      ctx.fill();
+      // levá polovina ve stínu
+      ctx.fillStyle = "rgba(80,60,35,0.16)";
+      ctx.beginPath();
+      ctx.moveTo(cx, vrchol);
+      ctx.bezierCurveTo(cx - sirka * 0.42, vrchol + vysStreny * 0.16,
+                        cx - sirka * 0.9, vrchol + vysStreny * 0.64,
+                        cx - sirka, okap);
+      ctx.lineTo(cx, okap);
+      ctx.closePath();
+      ctx.fill();
+      // doškové řady
+      ctx.strokeStyle = "rgba(80,60,35,0.22)";
+      ctx.lineWidth = Math.max(1, 0.12 * m);
+      for (var f = 0.32; f < 0.85; f += 0.22) {
+        var y = vrchol + vysStreny * f;
+        var w = sirka * Math.pow(f, 0.72);
+        ctx.beginPath();
+        ctx.moveTo(cx - w, y);
+        ctx.quadraticCurveTo(cx, y + w * 0.12, cx + w, y);
+        ctx.stroke();
+      }
+      // čupřina na hřebeni
+      ctx.fillStyle = MELCINA;
+      ctx.beginPath();
+      ctx.ellipse(cx, vrchol - 0.15 * m, sirka * 0.075, vysStreny * 0.1, 0, 0, Math.PI * 2);
+      ctx.fill();
       ctx.restore();
     }
 
@@ -2899,7 +2987,7 @@ a { color: inherit; }
       }
       kresliVodu(sek);
       kresliBrehy();
-      kresliVesnici(dojel ? Math.min(1, (cas - konecT) / 900) : 0);
+      kresliVesnici(dojel ? Math.min(1, (cas - konecT) / 700) : 0);
       kresliPrekazky();
       kresliMlhu();
       kresliLod(sek);
@@ -2911,7 +2999,7 @@ a { color: inherit; }
         hlaskaDo = 0;
       }
 
-      if (dojel && cas - konecT > 1800) {
+      if (dojel && cas - konecT > 2600) {
         bezi = false;
         pristav.style.transition = "opacity .5s ease";
         pristav.style.opacity = "0";
@@ -2951,9 +3039,12 @@ a { color: inherit; }
     function zapniNaklon() {
       window.addEventListener("deviceorientation", naNaklon);
       if (naklonTl) {
-        naklonTl.textContent = t("pristav.naklon.zap");
+        var popisek = naklonTl.querySelector("span");
+        if (popisek) {
+          popisek.textContent = t("pristav.naklon.zap");
+          popisek.setAttribute("data-i18n", "pristav.naklon.zap");
+        }
         naklonTl.disabled = true;
-        naklonTl.style.opacity = "0.6";
       }
     }
 
@@ -3243,20 +3334,25 @@ a { color: inherit; }
     var tlacitka = $$(".zvuk");            /* jedno v hlavičce, jedno v liště */
     if (!zvuk || !tlacitka.length) return;
 
-    var HLASITOST = 0.55, NABEH = 2.5, DOZNENI = 3.0;
-    zvuk.volume = 0;
+    var HLASITOST = 0.55, NABEH = 1.2, DOZNENI = 3.0;
     var hralo = false;
 
-    /* Náběh a doznění řídíme za běhu, ne zapečené v souboru: díky tomu
-       se smyčka vrací na začátek plynule a původní nahrávka zůstává nedotčená. */
-    zvuk.addEventListener("timeupdate", function () {
+    /* Náběh a doznění řídíme za běhu, ne zapečené v souboru, aby se smyčka
+       vracela plynule. Hlasitost se musí nastavit i když prohlížeč ještě
+       nezná délku nahrávky, jinak by zůstala na nule a hrálo by to potichu. */
+    function nastavHlasitost() {
+      var t = zvuk.currentTime || 0;
       var d = zvuk.duration;
-      if (!d || isNaN(d)) return;
-      var t = zvuk.currentTime, v = HLASITOST;
-      if (t < NABEH) v = HLASITOST * (t / NABEH);
-      else if (t > d - DOZNENI) v = HLASITOST * Math.max(0, (d - t) / DOZNENI);
+      var v = HLASITOST;
+      if (t < NABEH) v = HLASITOST * (0.25 + 0.75 * (t / NABEH));
+      if (d && !isNaN(d) && t > d - DOZNENI) {
+        v = Math.min(v, HLASITOST * Math.max(0, (d - t) / DOZNENI));
+      }
       zvuk.volume = Math.max(0, Math.min(1, v));
-    });
+    }
+    zvuk.volume = HLASITOST * 0.25;
+    zvuk.addEventListener("timeupdate", nastavHlasitost);
+    zvuk.addEventListener("playing", nastavHlasitost);
 
     function stav(hraje) {
       var klic = hraje ? "zvuk.vypnout" : "zvuk.zapnout";
