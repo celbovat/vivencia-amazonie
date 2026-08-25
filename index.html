@@ -2439,7 +2439,7 @@ a { color: inherit; }
     var zacatek = 0;
 
     var CIL = 80;                    /* stejný cíl jako hra lod: 80 km */
-    var JEDNOTEK_NA_KM = 13;         /* aby plavba trvala zhruba půl minuty */
+    var JEDNOTEK_NA_KM = 4.5;        /* aby plavba trvala zhruba čtvrt minuty */
 
     var km = 0, rychlost = 34;       /* jednotky řeky za vteřinu */
     var t0 = 0, bezi = true, dojel = false, konecT = 0;
@@ -2517,7 +2517,7 @@ a { color: inherit; }
     }
 
     /* časová osa náletu, v sekundách od začátku */
-    var T_OTOC = 2.6, T_BRAZ = 4.4, T_ACRE = 6.0, T_REKA = 7.4, T_KONEC = 8.2;
+    var T_OTOC = 1.8, T_BRAZ = 3.0, T_ACRE = 4.0, T_REKA = 5.6, T_KONEC = 6.5;
 
     function kresliGlobus(cas) {
       ctx.fillStyle = GREEN;
@@ -3090,7 +3090,7 @@ a { color: inherit; }
           } else if (g.s < ujeto - 6) { darky.splice(j, 1); }
         }
 
-        if (km >= CIL) { dojel = true; konecT = cas; rekni(HL_BLIZKO, 2600); }
+        if (km >= CIL) { dojel = true; konecT = cas; rekni(HL_BLIZKO, 2200); }
       }
 
       ctx.save();
@@ -3115,11 +3115,11 @@ a { color: inherit; }
         hlaskaDo = 0;
       }
 
-      if (dojel && cas - konecT > 2600) {
+      if (dojel && cas - konecT > 2200) {
         bezi = false;
         pristav.style.transition = "opacity .5s ease";
         pristav.style.opacity = "0";
-        window.setTimeout(function () { schovejPristav(true); }, 500);
+        window.setTimeout(function () { schovejPristav(true); }, 400);
         return;
       }
       window.requestAnimationFrame(krok);
