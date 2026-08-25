@@ -762,6 +762,7 @@ HTML = """<!doctype html>
 
 <script>window.GEO = {geo};</script>
 <script>window.TEXTY = {texty};</script>
+<script>{mereni}</script>
 <script>{js}</script>
 </body>
 </html>
@@ -780,6 +781,7 @@ def sestav():
         texty=json.dumps({"cs": CS, "en": EN}, ensure_ascii=False),
         geo=(HERE / "geo.json").read_text(),
         js=(HERE / "app.js").read_text(),
+        mereni=(HERE / "mereni.js").read_text(),
 
         # ---- prijezd -----------------------------------------------------
         km_popis=CS["pristav.km"], preskoc=CS["pristav.preskoc"],

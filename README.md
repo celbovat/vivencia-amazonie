@@ -48,6 +48,7 @@ Workflow potřebuje dva secrets v repozitáři:
 | `content.py` | všechny texty, česky i anglicky, klíč po klíči |
 | `app.js` | chování: jazyk, přílet a plavba, vesnice, přihláška, hudba |
 | `styles.css` | vzhled |
+| `mereni.js` | PostHog: návštěvnost a trychtýř přihlášky |
 | `scene_village.py` | vesnice jako SVG, včetně rozklikávacích míst |
 | `ikony.py` | ikonky u zastávek cesty |
 | `geo.py`, `geo.json` | mapová data, zjednodušená z Natural Earth |
@@ -56,6 +57,36 @@ Workflow potřebuje dva secrets v repozitáři:
 | `test_prihlaska.py` | proklikání přihlášky, osm případů v obou jazycích |
 | `cdp.py` | řízení prohlížeče přes DevTools protokol |
 | `plakat.py` | rozdělaný A5 leták, práce na něm je pozastavená |
+
+## Měření
+
+`mereni.js` posílá návštěvnost do PostHogu, do projektu *Cura da Floresta web*
+(id 203731) společně s `cesta.` a `pobyt.curadafloresta.org` – rozliší se
+doménou. Je to jediné místo, kde si stránka sahá ven; když se knihovna
+nestáhne, stránka funguje dál, jen se nic nezměří.
+
+Bez cookies a tedy i bez lišty se souhlasem: `cookieless_mode: 'always'`
+a `persistence: 'memory'`. Pozor na `defaults` – bez něj knihovna
+`cookieless_mode` potichu ignoruje a cookies zase nasadí. Z `pages.dev`
+a z localhostu se neměří nic.
+
+| událost | kdy |
+|---|---|
+| `$pageview` | načtení stránky |
+| `plavba_dokoncena` | někdo doplul až do vesnice |
+| `plavba_preskocena` | přeskočil, `jak` rozliší tlačítko a klávesu |
+| `chci_jet` | kliknutí na přihlašovací CTA, `misto` je hlavička/lišta |
+| `hra_otevrena` | odchod na cesta.curadafloresta.org/hra |
+| `jazyk_prepnut` | přepnutí CS/EN |
+| `prihlaska_odeslana` | odeslaná přihláška, `kanal` je mail/whatsapp |
+
+Přihláška se měří až na odkrytí poděkování, ne na kliknutí – kliknout jde
+i na formulář, který neprojde kontrolou. Plavba se neměří vůbec, když se
+nepustí (vracející se návštěvník, `?rovnou`, odkaz s kotvou), aby to
+nevypadalo, že ji všichni přeskakují.
+
+Do adresy jde přidat `?od=neco` a v datech je pak vidět, odkud kdo přišel –
+třeba `?od=letak` na QR kódech z `qr.py`.
 
 ## Dvě věci, o kterých je dobré vědět
 
