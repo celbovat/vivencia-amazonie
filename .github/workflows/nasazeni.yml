@@ -48,6 +48,9 @@ jobs:
           git commit -m "Přestavěno ze zdrojů (${GITHUB_SHA::7})"
           git push
 
+      # Do dist/ jdou jen statické soubory. Složka functions/ zůstává v kořeni:
+      # wrangler ji hledá vedle nahrávané složky, ne uvnitř. Že se nahrála,
+      # pozná se ve výpisu podle řádky `Uploading Functions bundle`.
       - name: Připravit, co se nahraje
         run: |
           mkdir -p dist

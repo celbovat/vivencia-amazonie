@@ -49,6 +49,7 @@ Workflow potřebuje dva secrets v repozitáři:
 | `app.js` | chování: jazyk, přílet a plavba, vesnice, přihláška, hudba |
 | `styles.css` | vzhled |
 | `mereni.js` | PostHog: návštěvnost a trychtýř přihlášky |
+| `../functions/api/prihlaska.js` | odeslání přihlášky přes Brevo |
 | `scene_village.py` | vesnice jako SVG, včetně rozklikávacích míst |
 | `ikony.py` | ikonky u zastávek cesty |
 | `geo.py`, `geo.json` | mapová data, zjednodušená z Natural Earth |
@@ -57,6 +58,42 @@ Workflow potřebuje dva secrets v repozitáři:
 | `test_prihlaska.py` | proklikání přihlášky, osm případů v obou jazycích |
 | `cdp.py` | řízení prohlížeče přes DevTools protokol |
 | `plakat.py` | rozdělaný A5 leták, práce na něm je pozastavená |
+
+## Přihláška
+
+Formulář neotevírá poštu, ale posílá se na `/api/prihlaska`. Tam ji Pages
+Function předá Brevu, stejně jako to dělá `pobyt.curadafloresta.org`.
+Kontakt se nikam neukládá, jde jen o jednu zprávu s obsahem formuláře.
+Odpověď míří rovnou přihlášenému, jeho adresa jde jako `replyTo`.
+
+Chce to jednu proměnnou v nastavení Pages projektu:
+
+```bash
+npx wrangler pages secret put BREVO_API_KEY --project-name vivencia-amazonie
+```
+
+Odesílatel `hello@curadafloresta.org` musí zůstat v Brevu mezi ověřenými
+adresami, jinak Brevo zprávu odmítne a nic neodejde.
+
+**Dokud klíč není nastavený, funkce vrátí `{ configured: false }`** a stránka
+se tiše vrátí k tomu, co dělala dřív: otevře návštěvníkovi poštu s vyplněnou
+přihláškou. Formulář tedy nikdy neskončí slepě, jen se přihláška nedoručí
+sama. Při skutečném výpadku se pošta otevře taky, ale s vysvětlující hláškou.
+
+Ve formuláři je skryté pole `firma` jako past na roboty. Když ho něco vyplní,
+funkce odpoví `ok`, ale žádný e-mail neodejde.
+
+Funkci jde vyzkoušet lokálně, i s celou stránkou:
+
+```bash
+cd zdroje && python3 build.py && cp vivencia.html ../index.html && cd ..
+mkdir -p dist && cp index.html nahled.jpg dist/
+npx wrangler pages dev dist --binding BREVO_API_KEY=klic
+```
+
+Složka `functions/` zůstává v kořeni, i když se nahrává `dist/` – wrangler ji
+hledá vedle nahrávané složky, ne uvnitř. Že se povedla, pozná se ve výpisu
+podle řádky `Uploading Functions bundle`.
 
 ## Měření
 
@@ -78,12 +115,13 @@ a z localhostu se neměří nic.
 | `chci_jet` | kliknutí na přihlašovací CTA, `misto` je hlavička/lišta |
 | `hra_otevrena` | odchod na cesta.curadafloresta.org/hra |
 | `jazyk_prepnut` | přepnutí CS/EN |
-| `prihlaska_odeslana` | odeslaná přihláška, `kanal` je mail/whatsapp |
+| `prihlaska_odeslana` | `vysledek` je ok / posta / chyba / whatsapp |
 
-Přihláška se měří až na odkrytí poděkování, ne na kliknutí – kliknout jde
-i na formulář, který neprojde kontrolou. Plavba se neměří vůbec, když se
-nepustí (vracející se návštěvník, `?rovnou`, odkaz s kotvou), aby to
-nevypadalo, že ji všichni přeskakují.
+Přihláška se měří přímo v `app.js`, kde je vidět, jak dopadla, takže
+`vysledek` odliší doručenou přihlášku od té, co spadla do pošty. Stejné
+hodnoty jako na `pobyt`, aby šly obě domény porovnat v jednom grafu.
+Plavba se neměří vůbec, když se nepustí (vracející se návštěvník, `?rovnou`,
+odkaz s kotvou), aby to nevypadalo, že ji všichni přeskakují.
 
 Do adresy jde přidat `?od=neco` a v datech je pak vidět, odkud kdo přišel –
 třeba `?od=letak` na QR kódech z `qr.py`.

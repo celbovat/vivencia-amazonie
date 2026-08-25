@@ -1138,22 +1138,76 @@
       if (hotovo) { hotovo.hidden = false; hotovo.focus(); }
     }
 
-    var b1 = $("#poslat-mail");
-    if (b1) b1.addEventListener("click", function () {
-      var d = sesbirej();
-      if (!overit(d)) return;
+    /* Záloha pro případ, že přihláška neodejde: otevře poštu s předvyplněnou
+       zprávou, ať se vyplněný formulář neztratí. */
+    function otevriPostu(d) {
       var predmet = encodeURIComponent(
         (jazyk === "en" ? "Sign-up Amazon Dec 2026: " : "Přihláška Amazonie prosinec 2026: ")
         + d.jmeno);
       window.location.href = "mailto:" + MAIL + "?subject=" + predmet
         + "&body=" + encodeURIComponent(text(d));
-      window.setTimeout(hotovoUkaz, 400);
+    }
+
+    /* Přihláška jde na /api/prihlaska, odtud ji Pages Function pošle přes Brevo.
+       Stejně jako na pobyt.curadafloresta.org. */
+    var b1 = $("#poslat-mail");
+
+    function vypadek(d, puvodni) {
+      b1.disabled = false;
+      b1.textContent = puvodni;
+      if (hlaska) { hlaska.hidden = false; hlaska.textContent = t("prih.vypadek"); }
+      otevriPostu(d);
+    }
+
+    if (b1) b1.addEventListener("click", function () {
+      var d = sesbirej();
+      if (!overit(d)) return;
+
+      var puvodni = b1.textContent;
+      b1.disabled = true;
+      b1.textContent = t("prih.odesilam");
+
+      window.fetch("/api/prihlaska", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          jmeno: d.jmeno, mail: d.mail, telefon: d.tel, vzkaz: d.zprava,
+          hloubka: d.hloubka, jazyk: jazyk, firma: d.past
+        })
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; });
+      }).then(function (odpoved) {
+        if (odpoved.ok) {
+          if (window.mer) window.mer("prihlaska_odeslana", { vysledek: "ok" });
+          hotovoUkaz();
+          return;
+        }
+        if (window.mer) {
+          window.mer("prihlaska_odeslana", {
+            vysledek: odpoved.configured === false ? "posta" : "chyba"
+          });
+        }
+        /* configured:false není chyba, jen nenastavený klíč k Brevu. Otevře se
+           pošta jako dřív a člověku není co hlásit. Cokoli jiného je výpadek,
+           tam se hlásí, proč se místo odeslání otevírá pošta. */
+        if (odpoved.configured === false) {
+          b1.disabled = false;
+          b1.textContent = puvodni;
+          otevriPostu(d);
+        } else {
+          vypadek(d, puvodni);
+        }
+      }).catch(function () {
+        if (window.mer) window.mer("prihlaska_odeslana", { vysledek: "chyba" });
+        vypadek(d, puvodni);
+      });
     });
 
     var b2 = $("#poslat-wa");
     if (b2) b2.addEventListener("click", function () {
       var d = sesbirej();
       if (!overit(d)) return;
+      if (window.mer) window.mer("prihlaska_odeslana", { vysledek: "whatsapp" });
       window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(text(d)),
         "_blank", "noopener");
       hotovoUkaz();

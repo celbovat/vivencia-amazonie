@@ -113,22 +113,8 @@
     if (b) window.mer('jazyk_prepnut', { na: b.getAttribute('data-jazyk') });
   });
 
-  /* Odeslání neměřím na kliknutí, to projde i když formulář neprojde kontrolou.
-     Poděkování se odkryje až po opravdovém odeslání, tak se navěsím na ně;
-     kanál si zapamatuju z posledního kliknutí. */
-  var kanal = null;
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest && e.target.closest('#poslat-mail, #poslat-wa');
-    if (b) kanal = b.id === 'poslat-wa' ? 'whatsapp' : 'mail';
-  });
-
-  var hotovo = document.getElementById('f-hotovo');
-  if (hotovo && window.MutationObserver) {
-    var sledujHotovo = new MutationObserver(function () {
-      if (hotovo.hidden) return;
-      sledujHotovo.disconnect();
-      window.mer('prihlaska_odeslana', { kanal: kanal || 'neznámý' });
-    });
-    sledujHotovo.observe(hotovo, { attributes: true, attributeFilter: ['hidden'] });
-  }
+  /* Odeslání přihlášky se měří přímo v app.js, kde je vidět, jak dopadlo:
+     `vysledek` je ok / posta / chyba / whatsapp, stejně jako na
+     pobyt.curadafloresta.org. Tady by se dalo poznat jen tolik, že se odkrylo
+     poděkování, a odeslání přes poštu by se počítalo jako úspěch. */
 })();
