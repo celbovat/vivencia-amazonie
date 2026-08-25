@@ -3,7 +3,7 @@
 Jednostránková pozvánka na výpravu do vesnice Chico Curumim na řece Jordão
 v brazilském Acre, 27. 12. 2026 až 8. 1. 2027.
 
-Živě: https://celbovat.github.io/vivencia-amazonie/
+Živě: https://journey.curadafloresta.org/ (Cloudflare Pages, nasazuje se samo z main)
 
 `index.html` je celá stránka v jednom souboru. Písma, fotky, zvuk i mapová
 data jsou v něm vložené přímo, takže si stránka při načtení nesahá nikam ven.
@@ -22,6 +22,23 @@ cp vivencia.html ../index.html
 v souboru. Když čísla nesedí, někde je rozbitý selektor a zbytek stylopisu
 prohlížeč zahodil. Jednou se to už stalo a stránka kvůli tomu vyrostla o 3 700
 pixelů, než se na to přišlo.
+
+## Jak se to nasazuje
+
+Každý push do `main` spustí `.github/workflows/nasazeni.yml`. Ten sestaví
+stránku ze `zdroje/`, a když se výsledek liší od commitnutého `index.html`,
+commitne ho zpátky – takže zdroje a nasazená stránka se nikdy nerozejdou.
+Pak výsledek pošle na Cloudflare Pages (projekt `vivencia-amazonie`).
+
+Build v CI je čistý stdlib Python, žádné závislosti se neinstalují. `pocet.py`
+v CI neběží, protože potřebuje Chrome – ten je pořád na tobě, lokálně.
+
+Workflow potřebuje dva secrets v repozitáři:
+
+| secret | co to je |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | token s oprávněním *Cloudflare Pages: Edit* |
+| `CLOUDFLARE_ACCOUNT_ID` | ID účtu, kde je zóna `curadafloresta.org` |
 
 ## Co je kde
 

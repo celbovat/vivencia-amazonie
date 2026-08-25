@@ -1,0 +1,72 @@
+# Po každé změně v main: sestavit stránku ze zdrojů a nasadit na Cloudflare Pages.
+#
+# Build je čistý stdlib Python, takže runner nepotřebuje žádné závislosti.
+# Když se čerstvě sestavený index.html liší od toho commitnutého, workflow ho
+# commitne zpátky, aby GitHub Pages a Cloudflare servírovaly ten samý soubor.
+# Push přes GITHUB_TOKEN další běh workflow nespouští, takže se to nezacyklí.
+
+name: Nasazení na Cloudflare
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Jeden běh na větev; rozdělaný se zruší, ať se nasazení nepředbíhají.
+concurrency:
+  group: nasazeni-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  nasadit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Sestavit stránku
+        working-directory: zdroje
+        run: |
+          python3 build.py
+          cp vivencia.html ../index.html
+
+      - name: Commitnout index.html, pokud se změnil
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "index.html sedí se zdroji, není co commitovat"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Přestavěno ze zdrojů (${GITHUB_SHA::7})"
+          git push
+
+      - name: Připravit, co se nahraje
+        run: |
+          mkdir -p dist
+          cp index.html nahled.jpg dist/
+
+      - name: Nasadit na Cloudflare Pages
+        id: nasazeni
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=vivencia-amazonie --branch=main
+
+      - name: Shrnutí
+        run: |
+          {
+            echo "### Nasazeno"
+            echo ""
+            echo "- Cloudflare: ${{ steps.nasazeni.outputs.deployment-url }}"
+            echo "- Živě: https://journey.curadafloresta.org/"
+            echo "- Velikost index.html: $(( $(wc -c < dist/index.html) / 1024 )) kB"
+          } >> "$GITHUB_STEP_SUMMARY"

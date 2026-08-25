@@ -49,7 +49,7 @@ MAIL = "hello@curadafloresta.org"
 WA = "420734490078"
 
 # Adresa stranky. Pri prechodu na vlastni domenu se meni JEN tady.
-ADRESA = "https://celbovat.github.io/vivencia-amazonie/"
+ADRESA = "https://journey.curadafloresta.org/"
 HRA = "https://cesta.curadafloresta.org/hra/"
 HRA_EN = "https://cesta.curadafloresta.org/en/hra/"
 
