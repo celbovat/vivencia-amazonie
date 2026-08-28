@@ -60,6 +60,9 @@ a { color: inherit; }
 .lista :focus-visible { outline-color: var(--yellow); }
 
 .band { position: relative; overflow: hidden; }
+/* Lišta je fixed a na mobilu měří 63 px, takže cíl odkazu z navigace i z CTA
+   dopadal pod ni a nadpis sekce nebyl vidět. */
+.band[id] { scroll-margin-top: 5rem; }
 
 .col {
   max-width: 46rem;
