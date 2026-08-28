@@ -640,7 +640,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <h3 class="podnadpis">{vesnice_nadpis_h3}</h3>
+    {vesnice_nadpis_h3}
     <p class="lead">
       <span class="jen-siroke" data-i18n="vesnice.vyzva.siroke">{vyzva_s}</span>
       <span class="jen-uzke" data-i18n="vesnice.vyzva.uzke">{vyzva_u}</span>
@@ -749,7 +749,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <h3 class="podnadpis">{hloubka_nadpis_h3}</h3>
+    {hloubka_nadpis_h3}
     <div class="nabidky">
       <div class="nabidka">
         <div class="nabidka__hlava">{meka_h}{meka_cena}</div>
@@ -764,7 +764,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <h3 class="podnadpis">{kroky_nadpis_h3}</h3>
+    {kroky_nadpis_h3}
     <div class="kroky">
       <div class="krok">{krok1h}{krok1p}</div>
       <div class="krok">{krok2h}{krok2p}</div>
@@ -950,7 +950,7 @@ def sestav():
         cesta_nadpis=txt("cesta.nadpis", "h2", "nadpis-sekce"),
         cesta_vyzva=txt("cesta.vyzva", "p", "lead"),
         trasa=trasa(), karty_cesta=karty_cesta(), zavrit=CS["zavrit"],
-        vesnice_nadpis_h3=CS["vesnice.nadpis"],
+        vesnice_nadpis_h3=txt("vesnice.nadpis", "h3", "podnadpis"),
         vyzva_s=CS["vesnice.vyzva.siroke"], vyzva_u=CS["vesnice.vyzva.uzke"],
         scena=SV.svg(), body=body_vesnice(),
         karty_vesnice=karty_vesnice(), chipy=chipy_vesnice(),
@@ -986,7 +986,7 @@ def sestav():
         platba_nadpis=txt("cena.platba.nadpis", "h3"),
         platba_li=seznam("cena.platba", 3),
         platba_pozn=txt("cena.platba.pozn", "p", "pozn"),
-        hloubka_nadpis_h3=CS["hloubka.nadpis"],
+        hloubka_nadpis_h3=txt("hloubka.nadpis", "h3", "podnadpis"),
         meka_h=txt("hloubka.meka.h", "h3"),
         meka_cena=txt("hloubka.meka.cena", "span", "nabidka__cena"),
         meka_foto=foto("meka", "hloubka.meka.h", "nabidka__foto"),
@@ -996,7 +996,7 @@ def sestav():
         hapaya_foto=foto("hapaya", "hapaya.alt", "nabidka__foto"),
         hapaya_p=txt("hloubka.hapaya.p", "p"),
         hapaya_pozn=txt("hloubka.hapaya.pozn", "p", "nabidka__pozn"),
-        kroky_nadpis_h3=CS["kroky.nadpis"],
+        kroky_nadpis_h3=txt("kroky.nadpis", "h3", "podnadpis"),
         krok1h=txt("kroky.1.h", "h3"), krok1p=txt("kroky.1.p", "p", html=True),
         krok2h=txt("kroky.2.h", "h3"), krok2p=txt("kroky.2.p", "p", html=True),
         krok3h=txt("kroky.3.h", "h3"), krok3p=txt("kroky.3.p", "p", html=True),
