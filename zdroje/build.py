@@ -3,12 +3,78 @@
 texty z content.py. Vystup je jeden samostatny soubor bez externich zdroju
 (CSP v artifactu blokuje cizi hosty)."""
 
+import base64
+import hashlib
 import importlib.util
 import json
 import pathlib
+import struct
 
 HERE = pathlib.Path(__file__).parent
 A = HERE / "assets"
+
+# Velke assety uz nejdou do HTML jako data URI, ale vedle nej jako soubory.
+# Duvod: zvuk delal 40 % stranky a stahoval si ho i ten, kdo ho nikdy nepustil,
+# a `loading="lazy"` u fotek nedelalo nic, protoze na data URI neplati.
+# Slozka se generuje pri buildu, v gitu neni - zdrojem zustavaji assets/.
+MEDIA = HERE.parent / "media"
+
+# Slozka se cisti jednou na zacatku, at se v ni nehromadi assety z minulych
+# buildu (jmena nesou otisk, takze by kazda zmena nechala lezet starou verzi).
+if MEDIA.exists():
+    for _stary in MEDIA.iterdir():
+        _stary.unlink()
+else:
+    MEDIA.mkdir(parents=True)
+
+
+def rozmer(data):
+    """Sirka a vyska z hlavicky PNG nebo JPEG. Bez rozmeru v HTML skace layout,
+    az se obrazek dotahne. Jen stdlib, aby build nepotreboval Pillow."""
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return struct.unpack(">II", data[16:24])
+    if data[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(data) - 9:
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            znacka = data[i + 1]
+            # SOF0..SOF15 nesou rozmer; SOF4 a SOF12 jsou jine tabulky
+            if znacka in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+                          0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                v, s = struct.unpack(">HH", data[i + 5:i + 9])
+                return s, v
+            if znacka in (0xD8, 0x01) or 0xD0 <= znacka <= 0xD7:
+                i += 2
+                continue
+            i += 2 + struct.unpack(">H", data[i + 2:i + 4])[0]
+    return None
+
+
+def atr_rozmer(rm):
+    return ' width="%d" height="%d"' % rm if rm else ""
+
+
+def uloz(jmeno, data):
+    """Zapise asset vedle stranky a vrati cestu, kterou ma dat do HTML.
+
+    Do jmena se vklada otisk obsahu. Diky nemu jde na media/ pustit rok dlouhou
+    cache s `immutable` a pritom se zmenena fotka projevi hned - dostane jine
+    jmeno. Bez otisku by se muselo vybirat mezi cachovanim a aktualnosti."""
+    zaklad, _, pripona = jmeno.rpartition(".")
+    otisk = hashlib.sha256(data).hexdigest()[:8]
+    cele = "%s.%s.%s" % (zaklad, otisk, pripona)
+    (MEDIA / cele).write_bytes(data)
+    return "media/" + cele
+
+
+def bin_asset(cesta_txt, jmeno):
+    """Asset do media/. Bere original, kdyz je po ruce, jinak dekoduje base64."""
+    original = A / cesta_txt.replace(".txt", jmeno[jmeno.rfind("."):])
+    data = (original.read_bytes() if original.exists()
+            else base64.b64decode((A / cesta_txt).read_text().strip()))
+    return uloz(jmeno, data), rozmer(data)
 
 
 def modul(jmeno, soubor):
@@ -27,20 +93,29 @@ def b64(jmeno):
     return (A / jmeno).read_text().strip()
 
 
-def foto(klic, alt_klic, cls="foto"):
-    """Obrazek z decku, vlozeny jako data URI. alt se prepina s jazykem."""
-    return ('<img class="%s" loading="lazy" decoding="async" '
-            'src="data:image/jpeg;base64,%s" data-i18n="%s" data-i18n-attr="alt" '
-            'alt="%s" />' % (cls, (A / "foto" / (klic + ".txt")).read_text().strip(),
-                             alt_klic, CS[alt_klic]))
+def foto(klic, alt_klic, cls="foto", hned=False):
+    """Obrazek vedle stranky, ne v ni. alt se prepina s jazykem.
+
+    Rozmery jdou do HTML, aby se layout nehnul, az se obrazek dotahne.
+    `hned=True` je pro to, co je videt bez scrollovani; zbytek je liny."""
+    cesta, rm = bin_asset("foto/%s.txt" % klic, "%s.jpg" % klic)
+    velikost = ' width="%d" height="%d"' % rm if rm else ""
+    nacitani = ('decoding="async" fetchpriority="high"' if hned
+                else 'loading="lazy" decoding="async"')
+    return ('<img class="%s" %s src="%s"%s data-i18n="%s" data-i18n-attr="alt" '
+            'alt="%s" />' % (cls, nacitani, cesta, velikost, alt_klic, CS[alt_klic]))
 
 
 FONT_EXT = b64("font0-HankenGrotesk.txt")
 FONT_LAT = b64("font1-HankenGrotesk.txt")
-IMG_ZNAK = b64("img-hero__badge.txt")
+IMG_ZNAK, RM_ZNAK = bin_asset("img-hero__badge.txt", "znak.png")
 IMG_DIAMANT = b64("img-hero__diamond.txt")
-IMG_JACARE = b64("img-practical__jacare.txt")
-IMG_HAD = b64("img-snake.txt")
+IMG_JACARE, RM_JACARE = bin_asset("img-practical__jacare.txt", "jacare.png")
+IMG_HAD, RM_HAD = bin_asset("img-snake.txt", "had.png")
+HLAS = uloz("hlas.m4a", (A / "zvuk" / "hlas.m4a").read_bytes())
+HERO_FOTO, RM_HERO = bin_asset("foto/hero.txt", "hero.jpg")
+CITAT_FOTO, RM_CITAT = bin_asset("foto/citat.txt", "citat.jpg")
+ZAVER_FOTO, RM_ZAVER = bin_asset("foto/zaver.txt", "zaver.jpg")
 PAS_COP = b64("css-braid::before.txt")
 PAS_LAB = b64("css-braid--lab::before.txt")
 LINKA = b64("css-hero__rule.txt")
@@ -345,7 +420,7 @@ HTML = """<!doctype html>
     </span>
   </div>
   <div class="pristav__zacatek" id="pristav-zacatek">
-    <img class="pristav__znak" src="data:image/png;base64,{znak}"
+    <img class="pristav__znak" src="{znak}"
          alt="Cura da Floresta" width="300" height="298" />
     {pristav_nadpis}
     <button type="button" class="pristav__vyplout" id="pristav-vyplout"
@@ -396,7 +471,8 @@ HTML = """<!doctype html>
 
 <!-- ============ LIŠTA ============ -->
 <div class="lista" id="lista" data-vidno="0">
-  <img class="lista__znak" src="data:image/png;base64,{znak}" alt="Cura da Floresta" />
+  <img class="lista__znak" src="{znak}"{rm_znak} alt="Cura da Floresta"
+       decoding="async" />
   {sticky_label}
   <nav class="lista__nav">{nav}</nav>
   <button type="button" class="zvuk zvuk--maly" aria-pressed="false"
@@ -421,12 +497,13 @@ HTML = """<!doctype html>
 </div>
 
 <!-- zvuk se ovládá tlačítkem v hlavičce, vlastní přehrávač se nezobrazuje -->
-<audio id="hudba-prehravac" loop preload="auto"
-       src="data:audio/mp4;base64,{hlas}"></audio>
+<audio id="hudba-prehravac" loop preload="none"
+       src="{hlas}"></audio>
 
 <!-- ============ 1. HLAVIČKA ============ -->
 <header class="hero band grain" id="hero">
-  <img class="hero__foto" src="data:image/jpeg;base64,{hero_foto}" alt="" aria-hidden="true" />
+  <img class="hero__foto" src="{hero_foto}"{rm_hero} alt="" aria-hidden="true"
+       decoding="async" fetchpriority="high" />
   <div class="col">
     <div class="hero__vrch">
       <span class="hero__ovladace">
@@ -449,7 +526,7 @@ HTML = """<!doctype html>
           <span class="zvuk__popis" data-i18n="zvuk.zapnout">{zvuk_zap}</span>
         </button>
       </span>
-      <img class="hero__znak" src="data:image/png;base64,{znak}"
+      <img class="hero__znak" src="{znak}"
            alt="Cura da Floresta · União traz a força" width="300" height="298" />
     </div>
     {eyebrow}
@@ -500,7 +577,7 @@ HTML = """<!doctype html>
     </div>
   </div>
   <figure class="citat">
-    <img class="citat__obraz" src="data:image/jpeg;base64,{citat_foto}" alt=""
+    <img class="citat__obraz" src="{citat_foto}"{rm_citat} loading="lazy" decoding="async" alt=""
          aria-hidden="true" loading="lazy" decoding="async" />
     <div class="citat__telo">
       <span class="citat__znak" aria-hidden="true"></span>
@@ -706,7 +783,8 @@ HTML = """<!doctype html>
 
 <!-- ============ 7. OTÁZKY ============ -->
 <section class="papir band grain" id="otazky" data-usek="usek.otazky">
-  <img class="jacare" src="data:image/png;base64,{jacare}" alt="" aria-hidden="true" />
+  <img class="jacare" src="{jacare}"{rm_jacare} alt="" aria-hidden="true"
+       loading="lazy" decoding="async" />
   <div class="col">
     {otazky_nadpis}
     {pdf_slib}
@@ -719,9 +797,10 @@ HTML = """<!doctype html>
 
 <!-- ============ ZÁVĚR ============ -->
 <section class="zaver band grain">
-  <img class="zaver__foto" src="data:image/jpeg;base64,{zaver_foto}" alt=""
+  <img class="zaver__foto" src="{zaver_foto}"{rm_zaver} loading="lazy" decoding="async" alt=""
        aria-hidden="true" loading="lazy" decoding="async" />
-  <img class="zaver__had" src="data:image/png;base64,{had}" alt="" aria-hidden="true" />
+  <img class="zaver__had" src="{had}"{rm_had} alt="" aria-hidden="true"
+       loading="lazy" decoding="async" />
   <div class="col">
     {zaver1}
     {zaver2}
@@ -730,7 +809,8 @@ HTML = """<!doctype html>
 </section>
 
 <footer class="paticka">
-  <img src="data:image/png;base64,{znak}" alt="" aria-hidden="true" width="300" height="298" />
+  <img src="{znak}" alt="" aria-hidden="true" width="300" height="298"
+       loading="lazy" decoding="async" />
   <strong>Cura da Floresta</strong>
   <em>União traz a força</em>
   <div class="paticka__odkazy">
@@ -775,7 +855,9 @@ def sestav():
         font_ext=FONT_EXT, font_lat=FONT_LAT, css=(HERE / "styles.css").read_text(),
         linka=LINKA, pas_cop=PAS_COP, pas_lab=PAS_LAB,
         znak=IMG_ZNAK, diamant=IMG_DIAMANT,
-        hero_foto=(A / "foto" / "hero.txt").read_text().strip(), jacare=IMG_JACARE, had=IMG_HAD,
+        hero_foto=HERO_FOTO, rm_hero=atr_rozmer(RM_HERO),
+        jacare=IMG_JACARE, rm_jacare=atr_rozmer(RM_JACARE),
+        had=IMG_HAD, rm_had=atr_rozmer(RM_HAD), hlas=HLAS,
         mail=MAIL, wa=WA, adresa=ADRESA,
         alt="Vesnice Chico Curumim shora, doškové chýše u řeky Jordão",
         texty=json.dumps({"cs": CS, "en": EN}, ensure_ascii=False),
@@ -820,7 +902,8 @@ def sestav():
         pas2=foto("pas2", "pas2.alt"), pas2_pop=txt("pas2.pop", "figcaption"),
         pas3=foto("pas3", "pas3.alt"), pas3_pop=txt("pas3.pop", "figcaption"),
         citat=txt("citat", "p"),
-        citat_foto=(A / "foto" / "citat.txt").read_text().strip(),
+        citat_foto=CITAT_FOTO, rm_citat=atr_rozmer(RM_CITAT),
+        rm_znak=atr_rozmer(RM_ZNAK),
 
         # ---- 3. cesta a vesnice -------------------------------------------
         cesta_nadpis=txt("cesta.nadpis", "h2", "nadpis-sekce"),
@@ -867,7 +950,6 @@ def sestav():
         meka_cena=txt("hloubka.meka.cena", "span", "nabidka__cena"),
         meka_foto=foto("meka", "hloubka.meka.h", "nabidka__foto"),
         meka_p=txt("hloubka.meka.p", "p"),
-        hlas=(HERE / "assets" / "zvuk" / "hlas.txt").read_text().strip(),
         hapaya_h=txt("hloubka.hapaya.h", "h3"),
         hapaya_cena=txt("hloubka.hapaya.cena", "span", "nabidka__cena"),
         hapaya_foto=foto("hapaya", "hapaya.alt", "nabidka__foto"),
@@ -890,7 +972,7 @@ def sestav():
         fakta_seznam=fakta_seznam(), otazky=otazky(),
 
         # ---- 8. hry a zaver -------------------------------------------------
-        zaver_foto=(A / "foto" / "zaver.txt").read_text().strip(),
+        zaver_foto=ZAVER_FOTO, rm_zaver=atr_rozmer(RM_ZAVER),
         zaver1=txt("zaver.p1", "p"),
         zaver2=txt("zaver.p2", "p", html=True),
         zaver3=txt("zaver.p3", "p"),

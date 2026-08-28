@@ -54,7 +54,8 @@ jobs:
       - name: Připravit, co se nahraje
         run: |
           mkdir -p dist
-          cp index.html nahled.jpg dist/
+          cp index.html nahled.jpg _headers dist/
+          cp -r media dist/media
 
       - name: Nasadit na Cloudflare Pages
         id: nasazeni

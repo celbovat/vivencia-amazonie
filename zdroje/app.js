@@ -1308,8 +1308,10 @@
     document.addEventListener("keydown", priDoteku, true);
     document.addEventListener("click", priDoteku, true);
 
-    /* pokus hned po nacteni; skoro vzdy ho prohlizec odmitne */
-    spust();
+    /* Zadny pokus hned po nacteni. Prohlizec ho stejne odmitne (proto tu ten
+       pokus driv byl oznaceny jako marny), ale samotne zavolani play() spusti
+       stahovani nahravky, cimz obejde preload="none" - a tim se 950 kB stahlo
+       i tomu, kdo hudbu nikdy nechtel. Prvni dotek ji vyzvedne stejne. */
     /* dokud hudba nezacala, tlacitko na sebe upozorni */
     window.setTimeout(function () {
       if (!hralo) tlacitka.forEach(function (b) { b.setAttribute("data-lakej", "1"); });

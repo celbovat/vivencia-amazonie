@@ -7,3 +7,4 @@ zdroje/plakat-a5.pdf
 zdroje/__pycache__/
 dist/
 .wrangler/
+media/

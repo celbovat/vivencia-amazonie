@@ -1,0 +1,17 @@
+# Cachovani pro Cloudflare Pages. Poradi je zamerne: obecne pravidlo napred,
+# konkretnejsi za nim, aby prebilo.
+
+/*
+  Cache-Control: public, max-age=300
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Assety maji v nazvu otisk obsahu, takze se pri zmene prejmenuji. Diky tomu
+# je bezpecne rict prohlizeci, at si je nechá rok a uz se na ne neptá.
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Nahled odkazu si tahaji roboti WhatsAppu a spol., otisk v nazvu nema
+# (adresa je v og:image natvrdo), tak jen rozumne dlouho.
+/nahled.jpg
+  Cache-Control: public, max-age=86400
