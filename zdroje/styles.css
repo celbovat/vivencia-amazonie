@@ -1633,3 +1633,60 @@ a { color: inherit; }
   100% { box-shadow: 0 0 0 0 rgba(237, 110, 44, 0); }
 }
 @media (prefers-reduced-motion: reduce) { .zvuk[data-lakej="1"] { animation: none; } }
+
+/* ===================================================================
+   TELEFON A DOTYK
+
+   Základní text je 16,2 px, ten je v pořádku. Řeší se tu tři věci, které
+   se našly měřením na iPhonu 390x844: terče pro prst, pár popisků pod
+   12 px a tlačítko na přeskočení náletu, které se na úzkém displeji
+   mačkalo z 196x39 na 93x90 a text se lámal do čtyř řádků.
+   =================================================================== */
+
+/* Terče aspoň 44x44 (doporučení Applu), ale jen tam, kde se ovládá prstem.
+   Na desktopu myš trefí i menší a zvětšení by zbytečně nafouklo lištu. */
+@media (pointer: coarse) {
+  .zvuk { min-height: 44px; }
+  .zvuk--maly { min-width: 44px; justify-content: center; padding-inline: 0.6rem; }
+  .jazyk button { min-height: 44px; min-width: 44px; }
+  .jazyk { gap: 0.25rem; }
+  .bod { width: 44px; height: 44px; }
+  .chip { min-height: 44px; }
+  .pristav__preskoc { min-height: 44px; }
+}
+
+/* Popisky pod 12 px se na telefonu čtou špatně. Zvedají se jen ty nejmenší
+   a jen o kousek - verzálkové popisky jsou záměrná typografie, srovnat je
+   s běžným textem by tu hierarchii zbouralo. */
+@media (max-width: 40rem) {
+  .spojka__jak { font-size: 0.75rem; }
+  .zastavka__pod { font-size: 0.75rem; }
+  .podnadpis { font-size: 0.8rem; }
+  .pole label { font-size: 0.82rem; }
+  .formpozn { font-size: 0.95rem; }
+  .faktapas dt { font-size: 0.75rem; }
+  .ohlas__stitek { font-size: 0.78rem; }
+  .sloupce h3, .platba h3 { font-size: 0.78rem; }
+  /* Nadpis se skaluje s velikostí h1, tak i tenhle popisek nad ním. */
+  .hero h1 .uvod { font-size: 0.38em; }
+}
+
+/* Nálet: text tlačítka se lámal do čtyř řádků v kolečku. Nowrap to srovná na
+   jeden řádek, jenže pak se na 390 px nevejde vedle CS/EN a zvuku (zvlášť když
+   ty terče povyrostly na 44 px). Tak ať se řádka ovládání zalomí a tlačítko
+   dostane vlastní řádek - na náletu je nahoře stejně prázdno. */
+@media (max-width: 40rem) {
+  .pristav__vrch { flex-wrap: wrap; }
+  .pristav__ovladace {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem 0.5rem;
+    margin-inline-start: auto;
+  }
+  .pristav__preskoc {
+    white-space: nowrap;
+    font-size: 0.72rem;
+    padding: 0.5rem 0.85rem;
+    letter-spacing: 0.04em;
+  }
+}
