@@ -547,6 +547,39 @@ HTML = """<!doctype html>
   </div>
 </header>
 
+<!-- ============ SBĚR E-MAILŮ ============
+     Hned za hlavičkou schválně: kdo doplul, má za sebou 22 vteřin plavby,
+     a formuláře za obsahem konvertují výrazně líp než ty nahoře na stránce.
+     Jedno pole a jedno zaškrtávátko, protože každé pole navíc stojí konverzi. -->
+<section class="zluty band grain" id="zajem">
+  <div class="col">
+    {zajem_nadpis}
+    {zajem_text}
+    <form class="pole" id="zajem-form" novalidate>
+      <div>
+        <label for="z-mail" data-i18n="zajem.mail">{zajem_mail}</label>
+        <input type="email" id="z-mail" name="mail" autocomplete="email"
+               inputmode="email" required />
+      </div>
+      <div class="past" aria-hidden="true">
+        <label for="z-firma">Firma</label>
+        <input id="z-firma" name="firma" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+      <label class="zaskrtnout">
+        <input type="checkbox" id="z-souhlas" required />
+        <span data-i18n="zajem.souhlas">{zajem_souhlas}</span>
+      </label>
+      <div class="tlacitka">
+        <button type="submit" class="tlacitko" id="z-odeslat"
+                data-i18n="zajem.odeslat">{zajem_odeslat}</button>
+      </div>
+      <p class="formpozn" id="z-hlaska" role="status" hidden></p>
+    </form>
+    <p class="formpozn" id="z-hotovo" tabindex="-1" hidden
+       data-i18n="zajem.hotovo">{zajem_hotovo}</p>
+  </div>
+</section>
+
 <!-- ============ PÁS FAKTŮ ============ -->
 <section class="faktapas band">
   <div class="col col--siroky">
@@ -864,6 +897,14 @@ def sestav():
         geo=(HERE / "geo.json").read_text(),
         js=(HERE / "app.js").read_text(),
         mereni=(HERE / "mereni.js").read_text(),
+
+        # ---- sber e-mailu ------------------------------------------------
+        zajem_nadpis=txt("zajem.nadpis", "h2", "zajem__nadpis"),
+        zajem_text=txt("zajem.text", "p", "zajem__text"),
+        zajem_mail=CS["zajem.mail"],
+        zajem_souhlas=CS["zajem.souhlas"],
+        zajem_odeslat=CS["zajem.odeslat"],
+        zajem_hotovo=CS["zajem.hotovo"],
 
         # ---- prijezd -----------------------------------------------------
         km_popis=CS["pristav.km"], preskoc=CS["pristav.preskoc"],

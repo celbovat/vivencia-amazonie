@@ -379,6 +379,15 @@ CS = {
     "faq.7.a": "Od odletu z Prahy čtyři dny: letadlem do São Paula, dál do Rio "
                "Branco, autem do Tarauacá, malým letadlem do Jordão a nakonec lodí "
                "po řece Jordão do vesnice.",
+    "zajem.nadpis": "Nechte nám e-mail",
+    "zajem.text": "Ozveme se, až bude o čem psát: až se ustálí program, kolik zbývá míst a co cesta stojí. Zároveň vás zařadíme do losování o 20 g rapé.",
+    "zajem.mail": "Váš e-mail",
+    "zajem.souhlas": "Souhlasím, že mě Cura da Floresta může kontaktovat ohledně výpravy a dalších setkání.",
+    "zajem.odeslat": "Chci vědět víc",
+    "zajem.hotovo": "Jste na seznamu a v losování. Uvítací e-mail už je na cestě.",
+    "zajem.odlozeno": "Zapsali jsme si to. Signál je teď slabý, takže se to odešle za chvíli – nechte prosím stránku ještě otevřenou.",
+    "zajem.chyba": "Vyplňte prosím e-mail a zaškrtněte souhlas.",
+    "zajem.vypadek": "Uložit se to teď nepovedlo. Zkuste to prosím za chvíli, nebo nám napište na hello@curadafloresta.org.",
     "prih.nadpis": "Přihláška",
     "prih.uvod": "Přidáte se k nám? Nechte nám kontakt a my se vám ozveme. Přihláška "
                  "není závazná.",
@@ -828,6 +837,15 @@ EN = {
     "faq.7.a": "Four days from departure: by plane to São Paulo, on to Rio Branco, "
                "by car to Tarauacá, by small plane to Jordão and finally by boat "
                "up the Jordão river to the village.",
+    "zajem.nadpis": "Leave us your e-mail",
+    "zajem.text": "We will write when there is something worth writing about: when the programme firms up, how many places are left and what the journey costs. You also go into the draw for 20 g of rapé.",
+    "zajem.mail": "Your e-mail",
+    "zajem.souhlas": "I agree that Cura da Floresta may contact me about the journey and other gatherings.",
+    "zajem.odeslat": "Keep me posted",
+    "zajem.hotovo": "You are on the list and in the draw. A welcome e-mail is on its way.",
+    "zajem.odlozeno": "We have noted it down. The signal is weak right now, so it will be sent shortly – please leave this page open for a moment.",
+    "zajem.chyba": "Please fill in your e-mail and tick the consent box.",
+    "zajem.vypadek": "We could not save it just now. Please try again in a moment, or write to hello@curadafloresta.org.",
     "prih.nadpis": "Sign up",
     "prih.uvod": "Joining us? Leave us your contact details and we'll get back to "
                  "you. Signing up is not binding.",

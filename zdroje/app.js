@@ -1317,4 +1317,119 @@
       if (!hralo) tlacitka.forEach(function (b) { b.setAttribute("data-lakej", "1"); });
     }, 1200);
   })();
+
+  /* ===============================================================
+     SBĚR E-MAILŮ
+     Uloží kontakt přes /api/zajem do Brevo listu. Když to neprojde,
+     e-mail se schová do localStorage a zkusí se znovu, jakmile se
+     vrátí signál – na festivalu je slabé připojení pravidlo, ne výjimka,
+     a ztracený e-mail by nikdo nepoznal.
+     =============================================================== */
+  (function () {
+    var form = $("#zajem-form");
+    if (!form) return;
+    var poleMail = $("#z-mail"), poleSouhlas = $("#z-souhlas"), poleFirma = $("#z-firma");
+    var tlac = $("#z-odeslat"), hlaska = $("#z-hlaska"), hotovo = $("#z-hotovo");
+    var FRONTA = "cdf-vivencia-fronta";
+
+    function znacka() {
+      try {
+        var v = new URLSearchParams(location.search).get("od");
+        return v ? String(v).slice(0, 32) : "";
+      } catch (e) { return ""; }
+    }
+
+    function ctiFrontu() {
+      try { return JSON.parse(window.localStorage.getItem(FRONTA) || "[]"); }
+      catch (e) { return []; }
+    }
+    function zapisFrontu(f) {
+      try { window.localStorage.setItem(FRONTA, JSON.stringify(f.slice(-20))); }
+      catch (e) {}
+    }
+
+    function posli(d) {
+      return window.fetch("/api/zajem", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(d)
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; });
+      });
+    }
+
+    /* Co leží ve frontě, zkusíme poslat znovu. Ticho: člověk už dávno odešel
+       a hlásit mu úspěch nemá komu. */
+    function dorovnej() {
+      var f = ctiFrontu();
+      if (!f.length) return;
+      zapisFrontu([]);
+      f.forEach(function (d) {
+        posli(d).then(function (o) {
+          if (!o || !o.ok) { var z = ctiFrontu(); z.push(d); zapisFrontu(z); }
+        }).catch(function () {
+          var z = ctiFrontu(); z.push(d); zapisFrontu(z);
+        });
+      });
+    }
+    window.addEventListener("online", dorovnej);
+    dorovnej();
+
+    function rekni(klic) {
+      if (!hlaska) return;
+      hlaska.hidden = false;
+      hlaska.textContent = t(klic);
+    }
+
+    /* Odlozene se rika jinak nez ulozene. Tvrdit "jste na seznamu", kdyz zaznam
+       jen leti do fronty, by byla lez: kdyz clovek zavre stranku a nevrati se,
+       nikam se nedostane. */
+    function ulozeno(odlozene) {
+      form.hidden = true;
+      if (hotovo) {
+        hotovo.setAttribute("data-i18n", odlozene ? "zajem.odlozeno" : "zajem.hotovo");
+        hotovo.textContent = t(odlozene ? "zajem.odlozeno" : "zajem.hotovo");
+        hotovo.hidden = false;
+        hotovo.focus();
+      }
+      if (window.mer) {
+        window.mer("zajem_ulozen", { od: znacka() || "primo", odlozeno: !!odlozene });
+      }
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var mail = (poleMail.value || "").trim();
+      if (!mail || mail.indexOf("@") < 0 || !poleSouhlas.checked) {
+        rekni("zajem.chyba");
+        return;
+      }
+      if (hlaska) hlaska.hidden = true;
+
+      var d = {
+        mail: mail,
+        souhlas: true,
+        jazyk: jazyk,
+        od: znacka(),
+        firma: (poleFirma && poleFirma.value || "").trim()
+      };
+
+      var popis = tlac.textContent;
+      tlac.disabled = true;
+
+      posli(d).then(function (o) {
+        if (o && o.ok) { ulozeno(false); return; }
+        /* Nenastavený klíč i výpadek řešíme stejně: schovat a zkusit potom.
+           Člověku se nemá co hlásit, jeho e-mail se neztratil. */
+        var f = ctiFrontu(); f.push(d); zapisFrontu(f);
+        ulozeno(true);
+      }).catch(function () {
+        var f = ctiFrontu(); f.push(d); zapisFrontu(f);
+        ulozeno(true);
+      }).then(function () {
+        tlac.disabled = false;
+        tlac.textContent = popis;
+      });
+    });
+  })();
 })();
