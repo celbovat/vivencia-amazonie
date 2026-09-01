@@ -336,7 +336,7 @@ CS = {
     "kroky.2.h": "Krátce si zavoláme",
     "kroky.2.p": "Poznáme se, zodpovíme všechny vaše otázky a projdeme spolu "
                  "praktické i zdravotní dotazy.",
-    "kroky.3.h": "Koupě letenky do Brazílie",
+    "kroky.3.h": "Letenka do Brazílie",
     "kroky.3.p": "Pomůžeme vám najít vhodnou letenku do Brazílie, takže s tím "
                  "nebudete mít žádné starosti.",
     "kroky.4.h": "Zaplatíte zálohu",
@@ -792,7 +792,7 @@ EN = {
     "kroky.2.h": "We'll have a short call",
     "kroky.2.p": "We'll get to know each other, answer all your questions, and go "
                  "over practical and health-related questions together.",
-    "kroky.3.h": "Booking your flight to Brazil",
+    "kroky.3.h": "Your flight to Brazil",
     "kroky.3.p": "We will help you find a suitable flight to Brazil, so it is "
                  "nothing you need to worry about.",
     "kroky.4.h": "You pay the deposit",
