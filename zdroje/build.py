@@ -769,6 +769,7 @@ HTML = """<!doctype html>
       <div class="krok">{krok1h}{krok1p}</div>
       <div class="krok">{krok2h}{krok2p}</div>
       <div class="krok">{krok3h}{krok3p}</div>
+      <div class="krok">{krok4h}{krok4p}</div>
     </div>
 
     <form class="pole" id="f-prihlaska" novalidate>
@@ -984,7 +985,7 @@ def sestav():
         vcene_nadpis=txt("cena.vcene.nadpis", "h3"),
         vcene_li=seznam("cena.vcene", 6),
         platba_nadpis=txt("cena.platba.nadpis", "h3"),
-        platba_li=seznam("cena.platba", 3),
+        platba_li=seznam("cena.platba", 2),
         platba_pozn=txt("cena.platba.pozn", "p", "pozn"),
         hloubka_nadpis_h3=txt("hloubka.nadpis", "h3", "podnadpis"),
         meka_h=txt("hloubka.meka.h", "h3"),
@@ -1000,6 +1001,7 @@ def sestav():
         krok1h=txt("kroky.1.h", "h3"), krok1p=txt("kroky.1.p", "p", html=True),
         krok2h=txt("kroky.2.h", "h3"), krok2p=txt("kroky.2.p", "p", html=True),
         krok3h=txt("kroky.3.h", "h3"), krok3p=txt("kroky.3.p", "p", html=True),
+        krok4h=txt("kroky.4.h", "h3"), krok4p=txt("kroky.4.p", "p", html=True),
         prih_jmeno=CS["prih.jmeno"], prih_mail=CS["prih.mail"],
         prih_tel=CS["prih.tel"], prih_zprava=CS["prih.zprava"],
         prih_hapaya=CS["prih.hapaya"],

@@ -145,7 +145,7 @@ CS = {
     "scena.samauma.bod": "Posvátný strom Samaúma",
     "scena.samauma.chip": "Strom Samaúma",
     "scena.samauma.h": "Posvátný strom Samaúma",
-    "scena.samauma.p": "<strong>1. 1. 2027: odpočinek, požehnání džunglí a návštěva "
+    "scena.samauma.p": "<strong>Odpočinek, požehnání džunglí a návštěva "
                        "posvátného stromu Samaúma.</strong> Samaúma přečnívá korunu "
                        "pralesa, roste vysoko nad ostatní stromy a je z dálky vidět jako "
                        "orientační bod.",
@@ -323,8 +323,7 @@ CS = {
     "cena.nezahrnuje.5": "cestovní pojištění",
     "cena.platba.nadpis": "Jak se platí",
     "cena.platba.1": "Záloha 20 000 Kč při rezervaci. Tím máte místo jisté.",
-    "cena.platba.2": "Druhá splátka 30 000 Kč do 15. 9. 2026.",
-    "cena.platba.3": "Zbytek do 27. 11. 2026, tedy měsíc před cestou.",
+    "cena.platba.2": "Zbytek do 27. 11. 2026, tedy měsíc před cestou.",
     "cena.platba.pozn": "Číslo účtu vám pošleme, jakmile si zavoláme.",
     "cena.storno.nadpis": "Storno podmínky",
     "cena.storno.p": "Do 60 dnů před odletem vracíme vše kromě již vynaložených nákladů. "
@@ -337,8 +336,11 @@ CS = {
     "kroky.2.h": "Krátce si zavoláme",
     "kroky.2.p": "Poznáme se, zodpovíme všechny vaše otázky a projdeme spolu "
                  "praktické i zdravotní dotazy.",
-    "kroky.3.h": "Zaplatíte zálohu",
-    "kroky.3.p": "Po zaplacení zálohy vám zašleme více informací, které vám pomohou "
+    "kroky.3.h": "Koupě letenky do Brazílie",
+    "kroky.3.p": "Pomůžeme vám najít vhodnou letenku do Brazílie, takže s tím "
+                 "nebudete mít žádné starosti.",
+    "kroky.4.h": "Zaplatíte zálohu",
+    "kroky.4.p": "Po zaplacení zálohy vám zašleme více informací, které vám pomohou "
                  "se na společnou cestu příjemně připravit.",
     "hry.nadpis": "Hravá džungle",
     "hry.lead": "Kvíz a čtyři minihry z amazonského pralesa. Zjistěte, které zvíře by mohlo být vaším předkem.",
@@ -587,7 +589,7 @@ EN = {
     "scena.samauma.bod": "The sacred Samaúma tree",
     "scena.samauma.chip": "Samaúma tree",
     "scena.samauma.h": "The sacred Samaúma tree",
-    "scena.samauma.p": "<strong>1 Jan 2027: rest, the blessing of the jungle, and a visit "
+    "scena.samauma.p": "<strong>Rest, the blessing of the jungle, and a visit "
                        "to the sacred Samaúma tree.</strong> The Samaúma rises above the "
                        "forest canopy, far higher than the trees around it, and can be "
                        "seen from a distance as a landmark.",
@@ -775,8 +777,7 @@ EN = {
     "cena.nezahrnuje.5": "travel insurance",
     "cena.platba.nadpis": "How payment works",
     "cena.platba.1": "A deposit of 1 000 € when booking. That secures your place.",
-    "cena.platba.2": "The rest at least one month before the trip.",
-    "cena.platba.3": "In any case by 27 November 2026.",
+    "cena.platba.2": "The rest by 27 November 2026, a month before the trip.",
     "cena.platba.pozn": "We will send you the account details and the full payment schedule "
                         "once we have spoken.",
     "cena.storno.nadpis": "Cancellation policy",
@@ -791,8 +792,11 @@ EN = {
     "kroky.2.h": "We'll have a short call",
     "kroky.2.p": "We'll get to know each other, answer all your questions, and go "
                  "over practical and health-related questions together.",
-    "kroky.3.h": "You pay the deposit",
-    "kroky.3.p": "After the deposit we will send you more information to help you "
+    "kroky.3.h": "Booking your flight to Brazil",
+    "kroky.3.p": "We will help you find a suitable flight to Brazil, so it is "
+                 "nothing you need to worry about.",
+    "kroky.4.h": "You pay the deposit",
+    "kroky.4.p": "After the deposit we will send you more information to help you "
                  "prepare for the journey.",
     "hry.nadpis": "Playful jungle",
     "hry.lead": "A quiz and four minigames from the Amazon rainforest. Find out which animal could be your ancestor.",

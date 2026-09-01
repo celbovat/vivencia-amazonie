@@ -42,7 +42,12 @@ body {
 
 h1, h2, h3 { font-weight: 700; line-height: 1.08; text-wrap: balance; margin: 0; }
 p { margin: 0; }
+/* height:auto je nutne: atributy width/height v HTML jsou pro prohlizec
+   presentational hint, ktery prebije aspect-ratio z CSS a fotku natahne.
+   Pravidla, ktera chteji pevnou vysku (.hero__foto a spol.), maji vetsi
+   specificitu a tohle je neovlivni. */
 img, svg { max-width: 100%; }
+img { height: auto; }
 
 a { color: inherit; }
 
@@ -1165,7 +1170,8 @@ a { color: inherit; }
    ============================================================ */
 
 .kroky { display: grid; gap: 1.4rem; margin-top: 1.8rem; counter-reset: k; }
-@media (min-width: 50rem) { .kroky { grid-template-columns: repeat(3, 1fr); gap: 1.6rem; } }
+@media (min-width: 50rem) { .kroky { grid-template-columns: repeat(2, 1fr); gap: 1.6rem; } }
+@media (min-width: 72rem) { .kroky { grid-template-columns: repeat(4, 1fr); } }
 .krok { counter-increment: k; position: relative; padding-top: 3.2rem; }
 .krok::before {
   content: counter(k);
