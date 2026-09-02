@@ -2448,7 +2448,7 @@ a { color: inherit; }
       persistence: 'memory',
       autocapture: false,
       capture_pageview: false,
-      capture_pageleave: false,
+      capture_pageleave: true,   /* kvuli scrollu a spolehlivemu odeslani pri odchodu */
       disable_session_recording: true,
       person_profiles: 'identified_only',
     });
@@ -2500,6 +2500,60 @@ a { color: inherit; }
     });
     sledujPristav.observe(pristav, { attributes: true, attributeFilter: ['hidden'] });
   }, 0);
+
+  /* --- kam až člověk došel -----------------------------------------------
+     Procento scrollu samo o sobě na takhle dlouhé stránce nic neřekne. Proto
+     se hlásí i jméno sekce, ke které se člověk dostal: "došel k ceně a odešel"
+     je něco, s čím jde něco udělat, "41 %" ne. Čísla v názvu jsou kvůli tomu,
+     aby šly sekce v přehledu seřadit tak, jak jdou na stránce.
+
+     Odesílá se při schování stránky, ne při unload - na mobilu unload často
+     vůbec nenastane (člověk přepne appku) a událost by se ztratila. */
+  var sekce = [].slice.call(document.querySelectorAll("header, section"))
+    .filter(function (e) { return (" " + e.className + " ").indexOf(" band ") >= 0; });
+
+  if (sekce.length) {
+    var jmena = sekce.map(function (e, i) {
+      var j = e.id || String(e.className).trim().split(/\s+/)[0];
+      return (i < 9 ? "0" : "") + (i + 1) + "-" + j;
+    });
+    var nejdal = 0, maxProcent = 0, zacatek = Date.now(), odeslano = false, ceka = false;
+
+    function prepocti() {
+      var h = document.documentElement;
+      var lze = h.scrollHeight - h.clientHeight;
+      var p = lze > 0 ? Math.round(100 * (window.pageYOffset || h.scrollTop) / lze) : 100;
+      if (p > maxProcent) maxProcent = Math.min(100, Math.max(0, p));
+      var stred = h.clientHeight * 0.5;
+      for (var i = 0; i < sekce.length; i++) {
+        if (sekce[i].getBoundingClientRect().top <= stred && i > nejdal) nejdal = i;
+      }
+    }
+
+    function priScrollu() {
+      if (ceka) return;
+      ceka = true;
+      window.requestAnimationFrame(function () { ceka = false; prepocti(); });
+    }
+    window.addEventListener("scroll", priScrollu, { passive: true });
+    window.addEventListener("resize", priScrollu, { passive: true });
+    prepocti();
+
+    function posliOdchod() {
+      if (odeslano) return;
+      odeslano = true;
+      prepocti();
+      window.mer("odchod", {
+        nejdal: jmena[nejdal] || "?",
+        procent: maxProcent,
+        vterin: Math.round((Date.now() - zacatek) / 1000)
+      });
+    }
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") posliOdchod();
+    });
+    window.addEventListener("pagehide", posliOdchod);
+  }
 
   /* --- trychtýř -----------------------------------------------------------
      Kolik lidí přišlo, kolik z nich chtělo jet, a kolik nakonec opravdu
