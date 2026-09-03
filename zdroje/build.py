@@ -119,6 +119,7 @@ ZAVER_FOTO, RM_ZAVER = bin_asset("foto/zaver.txt", "zaver.jpg")
 PAS_COP = b64("css-braid::before.txt")
 PAS_LAB = b64("css-braid--lab::before.txt")
 LINKA = b64("css-hero__rule.txt")
+IKONA = b64("img-favicon.txt")
 
 MAIL = "hello@curadafloresta.org"
 WA = "420734490078"
@@ -383,6 +384,12 @@ HTML = """<!doctype html>
 <meta property="og:image:alt" content="{alt}" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="canonical" href="{adresa}" />
+<!-- Ikona musi byt v hlavicce, i kdyz je to jen par kB. Bez ni si ji
+     prohlizec sam vyzada na /favicon.ico, jenze Pages tam vrati celou
+     stranku s kodem 200 - a kazda navsteva tak stahne HTML jeste jednou
+     navic. Naposledy to bylo 147 kB pro nic. -->
+<link rel="icon" type="image/png" sizes="48x48"
+      href="data:image/png;base64,{ikona}" />
 <style>
 @font-face {{
   font-family: "Hanken Grotesk";
@@ -996,6 +1003,7 @@ def sestav():
         ohlas_stitek=txt("ohlas.stitek", "p", "ohlas__stitek"),
         ohlas_p1=txt("ohlas.p1", "p"),
         ohlas_p2=txt("ohlas.p2", "p"),
+        ikona=IKONA,
         ohlas_kdo=CS["ohlas.kdo"],
         ikona_ig=IKONA_IG,
         cena_nadpis=txt("cenaprih.nadpis", "h2", "nadpis-sekce"),
