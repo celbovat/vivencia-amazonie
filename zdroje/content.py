@@ -49,7 +49,7 @@ CS = {
                 "pomohly zrealizovat stavbu ceremoniální budovy, studnu, kvůli stále "
                 "většímu znečištění vody v řece a teď se vybírají penízky na nádrž na "
                 "ryby, protože ryb v řece ubývá.",
-    "ohlas.kdo": "na Instagramu, 18. června",
+    "ohlas.kdo": "Instagram, 18. června",
     "pristav.naklon": "Kormidlovat nakláněním",
     "pristav.naklon.zap": "Kormidlujete nakláněním",
     "pristav.vyplout": "Vyplout",
@@ -491,7 +491,7 @@ EN = {
                 "the village build the ceremonial house and a well, because the water in "
                 "the river keeps getting more polluted, and now they are raising money "
                 "for a fish pond, because there are fewer and fewer fish in the river.",
-    "ohlas.kdo": "on Instagram, 18 June",
+    "ohlas.kdo": "Instagram, 18 June",
     "pristav.naklon": "Steer by tilting",
     "pristav.naklon.zap": "Tilt steering is on",
     "pristav.vyplout": "Set off",

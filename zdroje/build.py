@@ -140,6 +140,22 @@ def txt(klic, tag="span", cls="", html=False, **atr):
     return '<%s%s data-i18n="%s"%s>%s</%s>' % (tag, a, klic, h, obsah, tag)
 
 
+# Znacka Instagramu k ohlasu. Plna plocha s evenodd jako ostatni ikony:
+# ramecek, krouzek objektivu a tecka jsou dohromady jedna cesta.
+IKONA_IG = (
+    '<svg class="ohlas__ig" viewBox="0 0 24 24" fill="currentColor" '
+    'aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="'
+    'M8 2.5H16A5.5 5.5 0 0 1 21.5 8V16A5.5 5.5 0 0 1 16 21.5H8'
+    'A5.5 5.5 0 0 1 2.5 16V8A5.5 5.5 0 0 1 8 2.5Z'
+    'M8.3 4.4H15.7A3.9 3.9 0 0 1 19.6 8.3V15.7A3.9 3.9 0 0 1 15.7 19.6H8.3'
+    'A3.9 3.9 0 0 1 4.4 15.7V8.3A3.9 3.9 0 0 1 8.3 4.4Z'
+    'M7.6 12A4.4 4.4 0 1 0 16.4 12A4.4 4.4 0 1 0 7.6 12Z'
+    'M9.4 12A2.6 2.6 0 1 0 14.6 12A2.6 2.6 0 1 0 9.4 12Z'
+    'M15.85 7A1.15 1.15 0 1 0 18.15 7A1.15 1.15 0 1 0 15.85 7Z'
+    '"/></svg>'
+)
+
+
 IK = modul("ikony", "ikony.py").IKONY
 
 
@@ -708,16 +724,20 @@ HTML = """<!doctype html>
 <!-- ============ OHLAS ============ -->
 <section class="ohlas band grain">
   <div class="col">
-    <figure>
-      {ohlas_stitek}
-      <blockquote>
+    {ohlas_stitek}
+    <figure class="ohlas__karta">
+      <figcaption class="ohlas__hlava">
+        <span class="ohlas__portret" aria-hidden="true">M</span>
+        <span class="ohlas__zdroj">
+          <a class="ohlas__jmeno" href="https://www.instagram.com/milinka7/"
+             target="_blank" rel="noopener">@milinka7</a>
+          <span class="ohlas__kdy">{ikona_ig}<span data-i18n="ohlas.kdo">{ohlas_kdo}</span></span>
+        </span>
+      </figcaption>
+      <blockquote class="ohlas__text">
         {ohlas_p1}
         {ohlas_p2}
       </blockquote>
-      <figcaption class="ohlas__kdo">
-        <a href="https://www.instagram.com/milinka7/" target="_blank"
-           rel="noopener">@milinka7</a> <span data-i18n="ohlas.kdo">{ohlas_kdo}</span>
-      </figcaption>
     </figure>
   </div>
 </section>
@@ -977,6 +997,7 @@ def sestav():
         ohlas_p1=txt("ohlas.p1", "p"),
         ohlas_p2=txt("ohlas.p2", "p"),
         ohlas_kdo=CS["ohlas.kdo"],
+        ikona_ig=IKONA_IG,
         cena_nadpis=txt("cenaprih.nadpis", "h2", "nadpis-sekce"),
         cena_hlavni_popis=txt("cena.hlavni.popis", "span", "cenovka__popis"),
         cena_hlavni=txt("cena.hlavni", "span", "cenovka__castka"),
