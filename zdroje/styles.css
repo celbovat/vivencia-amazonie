@@ -416,6 +416,8 @@ a { color: inherit; }
 }
 .lista[data-vidno="1"] { translate: 0 0; }
 .lista__znak { width: 2.1rem; height: auto; flex: none; }
+.lista__domu { display: flex; flex: none; border-radius: 50%; }
+.lista__domu:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .lista__popis {
   color: var(--cream);
   font-size: 0.78rem;

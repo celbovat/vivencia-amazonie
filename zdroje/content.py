@@ -411,6 +411,7 @@ CS = {
     "zaver.p2": "Pomáhá uzavírat staré kapitoly a dělá prostor pro nové začátky. "
                 "<strong>Je to výprava ven i dovnitř.</strong>",
     "zaver.p3": "Máte otázky? Napište na hello@curadafloresta.org.",
+    "lista.domu": "Zpět na curadafloresta.org",
     "foot.wa": "Napište na WhatsApp",
     "foot.znovu": "Pustit cestu znovu",
     "sticky.label": "Amazonie · 27. 12. – 8. 1.",
@@ -871,6 +872,7 @@ EN = {
     "zaver.p2": "It helps close old chapters and makes room for new beginnings. "
                 "<strong>It is a journey outward and inward.</strong>",
     "zaver.p3": "Questions? Write to hello@curadafloresta.org.",
+    "lista.domu": "Back to curadafloresta.org",
     "foot.wa": "Write on WhatsApp",
     "foot.znovu": "Play the journey again",
     "sticky.label": "Amazon · 27 Dec – 8 Jan",

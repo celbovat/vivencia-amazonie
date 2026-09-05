@@ -494,8 +494,11 @@ HTML = """<!doctype html>
 
 <!-- ============ LIŠTA ============ -->
 <div class="lista" id="lista" data-vidno="0">
-  <img class="lista__znak" src="{znak}"{rm_znak} alt="Cura da Floresta"
-       decoding="async" />
+  <a class="lista__domu" href="https://curadafloresta.org/"
+     data-i18n-attr="title" data-i18n="lista.domu" title="{lista_domu}">
+    <img class="lista__znak" src="{znak}"{rm_znak} alt="Cura da Floresta"
+         decoding="async" />
+  </a>
   {sticky_label}
   <nav class="lista__nav">{nav}</nav>
   <button type="button" class="zvuk zvuk--maly" aria-pressed="false"
@@ -895,6 +898,14 @@ HTML = """<!doctype html>
     <a class="paticka__odkaz" href="mailto:{mail}">
       <span>{mail}</span>
     </a>
+    <a class="paticka__odkaz" href="https://curadafloresta.org/">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"
+              fill="none" stroke="currentColor" stroke-width="2" />
+      </svg>
+      <span>curadafloresta.org</span>
+    </a>
   </div>
   <p class="paticka__znovu">
     <a href="?znovu" data-i18n="foot.znovu">{foot_znovu}</a>
@@ -1048,6 +1059,7 @@ def sestav():
         zaver1=txt("zaver.p1", "p"),
         zaver2=txt("zaver.p2", "p", html=True),
         zaver3=txt("zaver.p3", "p"),
+        lista_domu=CS["lista.domu"],
         foot_wa=CS["foot.wa"],
         foot_znovu=CS["foot.znovu"],
     )
