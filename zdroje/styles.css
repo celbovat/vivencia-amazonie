@@ -417,6 +417,18 @@ a { color: inherit; }
 .lista[data-vidno="1"] { translate: 0 0; }
 .lista__znak { width: 2.1rem; height: auto; flex: none; }
 .lista__domu { display: flex; flex: none; border-radius: 50%; }
+/* Odkaz zpět na hlavní web. Musí být nad překryvem plavby, jinak ho
+   návštěvník při prvním načtení vůbec neuvidí. */
+.domu { position: fixed; top: 14px; left: 16px; z-index: 95;
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .78rem; letter-spacing: .04em; text-decoration: none;
+  color: var(--cream); background: rgba(20, 40, 32, .62);
+  border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px;
+  padding: .5rem .85rem .5rem .7rem; backdrop-filter: blur(6px); }
+.domu::before { content: "\2190"; font-size: .95em; opacity: .85; }
+.domu:hover { background: rgba(20, 40, 32, .85); border-color: var(--orange); }
+.domu:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+@media (max-width: 640px) { .domu { font-size: .72rem; padding: .45rem .7rem .45rem .6rem; } }
 .lista__domu:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .lista__popis {
   color: var(--cream);

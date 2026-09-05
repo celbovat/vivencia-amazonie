@@ -416,6 +416,8 @@ HTML = """<!doctype html>
 <body>
 
 <!-- ============ PŘÍJEZD NA LODI ============ -->
+<a class="domu" href="https://curadafloresta.org/" data-i18n="hero.site">{hero_site}</a>
+
 <div class="pristav" id="pristav">
   <canvas id="pristav-platno"></canvas>
   <div class="pristav__vrch">
@@ -1060,6 +1062,7 @@ def sestav():
         zaver2=txt("zaver.p2", "p", html=True),
         zaver3=txt("zaver.p3", "p"),
         lista_domu=CS["lista.domu"],
+        hero_site=CS["hero.site"],
         foot_wa=CS["foot.wa"],
         foot_znovu=CS["foot.znovu"],
     )
