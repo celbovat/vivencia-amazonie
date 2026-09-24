@@ -50,7 +50,7 @@ CS = {
                 "většímu znečištění vody v řece a teď se vybírají penízky na nádrž na "
                 "ryby, protože ryb v řece ubývá.",
     "ohlas.kdo": "Instagram, 18. června",
-    "pristav.naklon": "Kormidlovat nakláněním",
+    "pristav.naklon": "Zapnout kormidlování náklonem",
     "pristav.naklon.zap": "Kormidlujete nakláněním",
     "pristav.vyplout": "Vyplout",
     "pristav.nadpis": "Zažij s námi Nový rok v Amazonii",
@@ -494,7 +494,7 @@ EN = {
                 "the river keeps getting more polluted, and now they are raising money "
                 "for a fish pond, because there are fewer and fewer fish in the river.",
     "ohlas.kdo": "Instagram, 18 June",
-    "pristav.naklon": "Steer by tilting",
+    "pristav.naklon": "Turn on tilt steering",
     "pristav.naklon.zap": "Tilt steering is on",
     "pristav.vyplout": "Set off",
     "pristav.nadpis": "Celebrate the New Year with us in the Amazon",

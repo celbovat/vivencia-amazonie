@@ -292,6 +292,9 @@
         if (stitek) stitek.setAttribute("data-vidno", "0");
         if (hud) hud.setAttribute("data-vidno", "1");
         if (navod) navod.setAttribute("data-vidno", "1");
+        /* Nabídka naklánění až teď: nad glóbusem a mapou ještě není co
+           kormidlovat a lidé tlačítko přestali vnímat dřív, než začala řeka. */
+        if (naklonTl && naklonNabidnout) naklonTl.hidden = false;
         rekni(HL_START, 2800);
       }
     }
@@ -841,6 +844,7 @@
        klepnutí, proto tlačítko. Android to dá rovnou. Prst funguje pořád. */
     var naklonTl = $("#pristav-naklon");
     var naklonZap = false;
+    var naklonNabidnout = false;   /* ukáže se se začátkem řeky, viz kresliGlobus */
 
     /* Na telefonu nemá smysl radit šipky, žádné tam nejsou. */
     var maDotyk = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
@@ -871,7 +875,8 @@
 
     if (naklonTl && window.DeviceOrientationEvent) {
       if (maDotyk) {
-        naklonTl.hidden = false;
+        naklonNabidnout = true;
+        if (faze === "reka") naklonTl.hidden = false;
         naklonTl.addEventListener("click", function (e) {
           e.stopPropagation();
           var zadost = window.DeviceOrientationEvent.requestPermission;
