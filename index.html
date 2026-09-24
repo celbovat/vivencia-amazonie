@@ -158,7 +158,9 @@ a { color: inherit; }
   color: var(--green);
 }
 .pristav--reka .pristav__preskoc:hover { border-color: var(--orange); color: var(--orange); }
-.pristav--reka .pristav__navod { color: var(--green); }
+/* návod i potvrzení naklánění leží dole na hnědé řece, ne na světlé obloze:
+   tmavě zelená na ní skoro nebyla vidět */
+.pristav--reka .pristav__navod { color: var(--cream); text-shadow: 0 1px 6px rgba(22, 44, 40, 0.6); }
 .pristav--reka .pristav__hlaska { background: var(--green); color: var(--cream); }
 /* plátno musí vyplnit celou plochu, ne se jen vejít doprostřed */
 .pristav canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
@@ -318,7 +320,7 @@ a { color: inherit; }
   animation: none;
   border: 2px solid rgba(255, 242, 217, 0.45);
 }
-.pristav--reka .pristav__naklon:disabled { color: var(--green); border-color: rgba(31,60,54,.4); }
+.pristav--reka .pristav__naklon:disabled { color: var(--cream); border-color: rgba(255, 242, 217, 0.45); }
 @media (prefers-reduced-motion: reduce) { .pristav__naklon { animation: none; } }
 .pristav__naklon[hidden] { display: none; }
 
