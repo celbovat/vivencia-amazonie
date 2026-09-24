@@ -417,9 +417,13 @@ a { color: inherit; }
 .lista[data-vidno="1"] { translate: 0 0; }
 .lista__znak { width: 2.1rem; height: auto; flex: none; }
 .lista__domu { display: flex; flex: none; border-radius: 50%; }
-/* Odkaz zpět na hlavní web. Musí být nad překryvem plavby, jinak ho
-   návštěvník při prvním načtení vůbec neuvidí. */
-.domu { position: fixed; top: 14px; left: 16px; z-index: 95;
+/* Odkaz zpět na hlavní web. Sedí v toku stránky nad ovladači (v hero i na
+   obrazovce plavby), ne připnutý přes celou stránku: připnutý na mobilu
+   ležel přes CS/EN a tlačítko hudby. Na plavbě je v její horní liště, která
+   je nad úvodní kartičkou, takže je klikatelný hned po načtení. */
+.vrch__vlevo { display: flex; flex-direction: column; align-items: flex-start;
+  gap: 0.7rem; min-width: 0; }
+.domu { pointer-events: auto;
   display: inline-flex; align-items: center; gap: .4rem;
   font-size: .78rem; letter-spacing: .04em; text-decoration: none;
   color: var(--cream); background: rgba(20, 40, 32, .62);

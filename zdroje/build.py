@@ -416,12 +416,13 @@ HTML = """<!doctype html>
 <body>
 
 <!-- ============ PŘÍJEZD NA LODI ============ -->
-<a class="domu" href="https://curadafloresta.org/" data-i18n="hero.site">{hero_site}</a>
-
 <div class="pristav" id="pristav">
   <canvas id="pristav-platno"></canvas>
   <div class="pristav__vrch">
-    <p class="pristav__km" id="pristav-hud" data-vidno="0">{km_popis}<b id="pristav-km">0 / 80</b></p>
+    <div class="vrch__vlevo">
+      <a class="domu" href="https://curadafloresta.org/" data-i18n="hero.site">{hero_site}</a>
+      <p class="pristav__km" id="pristav-hud" data-vidno="0">{km_popis}<b id="pristav-km">0 / 80</b></p>
+    </div>
     <span class="pristav__ovladace">
       <span class="jazyk">
         <button type="button" data-jazyk="cs" aria-pressed="true">CS</button>
@@ -534,6 +535,8 @@ HTML = """<!doctype html>
        decoding="async" fetchpriority="high" />
   <div class="col">
     <div class="hero__vrch">
+      <div class="vrch__vlevo">
+      <a class="domu" href="https://curadafloresta.org/" data-i18n="hero.site">{hero_site}</a>
       <span class="hero__ovladace">
         <span class="jazyk">
           <button type="button" data-jazyk="cs" aria-pressed="true">CS</button>
@@ -554,6 +557,7 @@ HTML = """<!doctype html>
           <span class="zvuk__popis" data-i18n="zvuk.zapnout">{zvuk_zap}</span>
         </button>
       </span>
+      </div>
       <img class="hero__znak" src="{znak}"
            alt="Cura da Floresta · União traz a força" width="300" height="298" />
     </div>
