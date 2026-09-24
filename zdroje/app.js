@@ -159,10 +159,10 @@
       hlaskaDo = performance.now() + (ms || 2200);
     }
 
-    var HL_START = t("pristav.hlaska.start");
-    var HL_NARAZ = (t("pristav.hlaska.naraz") || "").split("|");
-    var HL_BANAN = (t("pristav.hlaska.banan") || "").split("|");
-    var HL_BLIZKO = t("pristav.hlaska.blizko");
+    /* Texty hlášek se berou až ve chvíli, kdy zazní: kdo během plavby
+       přepne jazyk, má další hlášku už v novém jazyce. */
+    function hl(klic) { return t("pristav.hlaska." + klic); }
+    function hlNahodna(klic) { return nahodna((hl(klic) || "").split("|")); }
     function nahodna(p) { return p[Math.floor(Math.random() * p.length)] || ""; }
 
     /* ------------------------------------------------------- zeměkoule */
@@ -295,7 +295,7 @@
         /* Nabídka naklánění až teď: nad glóbusem a mapou ještě není co
            kormidlovat a lidé tlačítko přestali vnímat dřív, než začala řeka. */
         if (naklonTl && naklonNabidnout) naklonTl.hidden = false;
-        rekni(HL_START, 2800);
+        rekni(hl("start"), 2800);
       }
     }
 
@@ -778,7 +778,7 @@
             prekazky.splice(i, 1);
             rychlost = Math.max(18, rychlost * 0.55);
             otres = 12;
-            rekni(nahodna(HL_NARAZ), 1800);
+            rekni(hlNahodna("naraz"), 1800);
           } else if (o.s < ujeto - 6) { prekazky.splice(i, 1); }
         }
         for (var j = darky.length - 1; j >= 0; j--) {
@@ -787,11 +787,11 @@
             darky.splice(j, 1);
             ujeto += (g.druh === "banan" ? 0.3 : 0.5) * JEDNOTEK_NA_KM;
             rychlost = Math.min(48, rychlost + 3);
-            rekni(nahodna(HL_BANAN), 1500);
+            rekni(hlNahodna("banan"), 1500);
           } else if (g.s < ujeto - 6) { darky.splice(j, 1); }
         }
 
-        if (km >= CIL) { dojel = true; konecT = cas; rekni(HL_BLIZKO, 2200); }
+        if (km >= CIL) { dojel = true; konecT = cas; rekni(hl("blizko"), 2200); }
       }
 
       ctx.save();
