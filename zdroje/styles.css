@@ -197,6 +197,12 @@ a { color: inherit; }
   padding-bottom: max(var(--gutter), env(safe-area-inset-bottom));
   text-align: center;
   pointer-events: none;
+  /* Každý prvek na vlastní řádek a na střed. Dřív byly vedle sebe v jednom
+     řádku textu a neviditelná (jen průhledná) bublina hlášky odstrkovala
+     tlačítko naklánění mimo střed. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .pristav__navod {
   color: var(--cream);
