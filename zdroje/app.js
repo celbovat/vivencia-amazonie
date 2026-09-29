@@ -1115,8 +1115,8 @@
     function text(d) {
       return [
         (jazyk === "en"
-          ? "Sign-up: Amazon, 27 December 2026 to 8 January 2027"
-          : "Přihláška: Amazonie 27. 12. 2026 – 8. 1. 2027"),
+          ? "Sign-up: Amazon, 20 December 2026 to 4 January 2027"
+          : "Přihláška: Amazonie 20. 12. 2026 – 4. 1. 2027"),
         (jazyk === "en" ? "Name" : "Jméno") + ": " + d.jmeno,
         "E-mail: " + d.mail,
         (jazyk === "en" ? "Phone" : "Telefon") + ": "

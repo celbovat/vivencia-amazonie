@@ -13,7 +13,7 @@ Pravidla, ktera text drzi:
 
 CS = {
     "meta.jmeno": "Nový rok v Amazonii",
-    "meta.title": "Nový rok v Amazonii · vesnice Chico Curumim, 27. 12. 2026 – 8. 1. "
+    "meta.title": "Nový rok v Amazonii · vesnice Chico Curumim, 20. 12. 2026 – 4. 1. "
                   "2027",
     "meta.desc": "Dvanáct dní u kmene Huni Kuin na řece Jordão v brazilském Acre. "
                  "Oslava a požehnání do nového roku 2027 ve vesnici Chico Curumim. "
@@ -22,7 +22,7 @@ CS = {
     "pdf.slib": "Podrobný program den po dni, seznam na sbalení, očkování, hygienu "
                 "a storno podmínky pošleme v PDF, jakmile se ozvete.",
     "fakt.kdy": "Kdy",
-    "fakt.kdy.v": "27. 12. 2026 až 8. 1. 2027",
+    "fakt.kdy.v": "20. 12. 2026 až 4. 1. 2027",
     "fakt.kde": "Kde",
     "fakt.kde.v": "Chico Curumim, řeka Jordão, Acre, Brazílie",
     "fakt.cena": "Cena",
@@ -60,7 +60,7 @@ CS = {
     "hero.h1.c": "v Amazonii",
     "hero.sub": "Oslava a požehnání do nového roku 2027 ve vesnici Chico Curumim, u "
                 "naší rodiny Huni Kuin.",
-    "hero.meta": "27. 12. 2026 – 8. 1. 2027 · řeka Jordão, Acre · maximálně 8 míst",
+    "hero.meta": "20. 12. 2026 – 4. 1. 2027 · řeka Jordão, Acre · maximálně 8 míst",
     "hero.cta": "Chci jet",
     "hero.cta2": "Co nás čeká ↓",
     "hero.cta3": "Zahraj si",
@@ -87,52 +87,52 @@ CS = {
     "cesta.praha.jmeno": "Praha",
     "cesta.praha.pod": "odlet",
     "cesta.praha.h": "Praha · odlet",
-    "cesta.praha.p": "Vyrážíme z Česka 26. prosince. Letenku Praha – São Paulo – Praha "
+    "cesta.praha.p": "Vyrážíme z Česka 20. prosince. Letenku Praha – São Paulo – Praha "
                      "si kupujete sami, obvykle vyjde na 25 000 až 30 000 Kč včetně "
                      "odbaveného zavazadla. <strong>Čím dřív ji koupíte, tím "
                      "lépe.</strong>",
     "cesta.praha.spoj": "letadlo",
     "cesta.saopaulo.jmeno": "São Paulo",
-    "cesta.saopaulo.pod": "den 1 · 26. 12.",
-    "cesta.saopaulo.h": "Den 1 · 26. 12. · São Paulo",
+    "cesta.saopaulo.pod": "den 1 · 20. 12.",
+    "cesta.saopaulo.h": "Den 1 · 20. 12. · São Paulo",
     "cesta.saopaulo.p": "Přílet do barevného São Paula. Přespíme ve městě, v hotelu, pokoje "
                         "po dvou.",
     "cesta.saopaulo.spoj": "letadlo",
     "cesta.riobranco.jmeno": "Rio Branco",
-    "cesta.riobranco.pod": "den 2 · 27. 12.",
-    "cesta.riobranco.h": "Den 2 · 27. 12. · Rio Branco",
+    "cesta.riobranco.pod": "den 2 · 21. 12.",
+    "cesta.riobranco.h": "Den 2 · 21. 12. · Rio Branco",
     "cesta.riobranco.p": "Přelet do brazilského státu Acre, který se nachází na hranicích s "
                          "Peru. Přistáváme ve městě Rio Branco.",
     "cesta.riobranco.spoj": "auto",
     "cesta.taruaca.jmeno": "Tarauacá",
-    "cesta.taruaca.pod": "den 3 · 28. 12.",
-    "cesta.taruaca.h": "Den 3 · 28. 12. · Tarauacá",
+    "cesta.taruaca.pod": "den 3 · 22. 12.",
+    "cesta.taruaca.h": "Den 3 · 22. 12. · Tarauacá",
     "cesta.taruaca.p": "Autem do městečka Tarauacá, odkud se vydáme do džungle. Asfalt "
                        "tady končí.",
     "cesta.taruaca.spoj": "malé letadlo",
     "cesta.jordao.jmeno": "Jordão",
-    "cesta.jordao.pod": "den 4 · 29. 12.",
-    "cesta.jordao.h": "Den 4 · 29. 12. · Jordão",
+    "cesta.jordao.pod": "den 4 · 23. 12.",
+    "cesta.jordao.h": "Den 4 · 23. 12. · Jordão",
     "cesta.jordao.p": "Přesun malým letadlem do městečka Jordão, které se skrývá hluboko "
                       "v Amazonii. <strong>Poslední možnost dokoupit vybavení nebo "
                       "potraviny</strong>. Gumáky se dají koupit právě tady. Odsud "
                       "pokračujeme lodí.",
     "cesta.jordao.spoj": "loď",
     "cesta.vesnice.jmeno": "Chico Curumim",
-    "cesta.vesnice.pod": "den 5–13",
-    "cesta.vesnice.h": "Den 5 až 13 · 29. 12. – 6. 1. · Chico Curumim",
-    "cesta.vesnice.p": "Devět dní ve vesnici. Ponoření do tajemství rituálů a ceremonií, "
+    "cesta.vesnice.pod": "den 5–15",
+    "cesta.vesnice.h": "Den 5 až 15 · 23. 12. – 2. 1. · Chico Curumim",
+    "cesta.vesnice.p": "Jedenáct dní ve vesnici. Ponoření do tajemství rituálů a ceremonií, "
                        "poznávání každodenního života a jeho přirozeného rytmu. Nahlédneme "
                        "do tradičního lovu ryb, sběru léčivých bylin i tanců.",
     "cesta.zpatky.nadpis": "A stejnou cestou zpátky",
-    "cesta.zpatky.p": "<strong>6. 1.</strong> lodí do Jordão, kde přespíme jednu noc a "
-                      "pomalu se začneme adaptovat na „vnější svět“. <strong>7. "
-                      "1.</strong> do Tarauacá a dál do Rio Branco. <strong>8. "
+    "cesta.zpatky.p": "<strong>2. 1.</strong> lodí do Jordão, kde přespíme jednu noc a "
+                      "pomalu se začneme adaptovat na „vnější svět“. <strong>3. "
+                      "1.</strong> do Tarauacá a dál do Rio Branco. <strong>4. "
                       "1.</strong> ráno odlet do São Paula, večer domů. Nebo můžete "
                       "zůstat v Brazílii individuálně déle.",
     "letecka.alt": "Vesnice Chico Curumim z výšky, doškové domy nad řekou Jordão",
     "letecka.pop": "Takhle vypadá Chico Curumim doopravdy",
-    "vesnice.nadpis": "Devět dní ve vesnici",
+    "vesnice.nadpis": "Jedenáct dní ve vesnici",
     "kam.nadpis": "Kam jedeme",
     "vesnice.vyzva.siroke": "Klikněte na oranžové puntíky a podívejte se, co nás čeká.",
     "vesnice.vyzva.uzke": "Vyberte si zastavení a podívejte se, co nás čeká.",
@@ -195,21 +195,21 @@ CS = {
     "program.nadpis": "Předběžný program",
     "program.pod": "který se může měnit podle plánu Velkého ducha",
     "program.d5": "Příjezd do vesnice",
-    "program.d5.t": "29. 12.",
+    "program.d5.t": "23. 12.",
     "program.d67": "Novoroční ceremonie, oslava života, očistné rituály",
     "program.d67.t": "30. a 31. 12.",
     "program.d8": "Odpočinek, požehnání džunglí a návštěva posvátného stromu Samaúma",
-    "program.d8.t": "1. 1. 2027",
+    "program.d8.t": "24. a 25. 12.",
     "program.d9": "Denní ceremonie, čas a prostor pro vize do nového roku",
-    "program.d9.t": "2. 1.",
+    "program.d9.t": "26. 12.",
     "program.d10": "Ceremonie v menším kruhu",
-    "program.d10.t": "3. 1.",
+    "program.d10.t": "27. 12.",
     "program.d11": "Sbírání bylin v pralese a příprava na ceremonii",
-    "program.d11.t": "4. 1.",
+    "program.d11.t": "28. a 29. 12.",
     "program.d12": "Závěrečná ceremonie",
-    "program.d12.t": "5. 1.",
+    "program.d12.t": "1. 1. 2027",
     "program.d13": "Ráno lodí zpátky do Jordão",
-    "program.d13.t": "6. 1.",
+    "program.d13.t": "2. 1.",
     "lide.nadpis": "Kdo vás ve vesnici přivítá",
     "lide.tamani.jmeno": "Tamani",
     "lide.tamani.role": "náčelnice vesnice",
@@ -323,7 +323,7 @@ CS = {
     "cena.nezahrnuje.5": "cestovní pojištění",
     "cena.platba.nadpis": "Jak se platí",
     "cena.platba.1": "Záloha 20 000 Kč při rezervaci. Tím máte místo jisté.",
-    "cena.platba.2": "Zbytek do 27. 11. 2026, tedy měsíc před cestou.",
+    "cena.platba.2": "Zbytek do 27. 11. 2026.",
     "cena.platba.pozn": "Číslo účtu vám pošleme, jakmile si zavoláme.",
     "cena.storno.nadpis": "Storno podmínky",
     "cena.storno.p": "Do 60 dnů před odletem vracíme vše kromě již vynaložených nákladů. "
@@ -415,7 +415,7 @@ CS = {
     "hero.site": "curadafloresta.org",
     "foot.wa": "Napište na WhatsApp",
     "foot.znovu": "Pustit cestu znovu",
-    "sticky.label": "Amazonie · 27. 12. – 8. 1.",
+    "sticky.label": "Amazonie · 20. 12. – 4. 1.",
     "sticky.cta": "Chci jet",
     "pas.nadpis": "Vesnice Chico Curumim",
     "pas1.alt": "Chatrč ve vesnici Chico Curumim",
@@ -444,7 +444,7 @@ CS = {
     "pristav.hlaska.blizko": "Vesnice na obzoru. Jsme doma.",
     "usek.uvod": "Kam jedeme",
     "usek.cesta": "Jak se tam dostaneme",
-    "usek.vesnice": "Devět dní ve vesnici",
+    "usek.vesnice": "Jedenáct dní ve vesnici",
     "usek.program": "Program",
     "usek.lide": "Lidé",
     "usek.bezpeci": "Ceremonie a bezpečí",
@@ -457,7 +457,7 @@ CS = {
 
 EN = {
     "meta.jmeno": "New Year in the Amazon",
-    "meta.title": "New Year in the Amazon · Chico Curumim village, 27 Dec 2026 – 8 "
+    "meta.title": "New Year in the Amazon · Chico Curumim village, 20 Dec 2026 – 4 "
                   "Jan 2027",
     "meta.desc": "Twelve days with the Huni Kuin on the Jordão river in Acre, "
                  "Brazil. Celebration and blessings for the new year 2027 in the "
@@ -466,7 +466,7 @@ EN = {
     "pdf.slib": "The day by day programme, the packing list, vaccinations, hygiene and "
                 "the cancellation policy come in a PDF as soon as you get in touch.",
     "fakt.kdy": "When",
-    "fakt.kdy.v": "27 Dec 2026 to 8 Jan 2027",
+    "fakt.kdy.v": "20 Dec 2026 to 4 Jan 2027",
     "fakt.kde": "Where",
     "fakt.kde.v": "Chico Curumim, Jordão river, Acre, Brazil",
     "fakt.cena": "Price",
@@ -504,7 +504,7 @@ EN = {
     "hero.h1.c": "in the Amazon",
     "hero.sub": "Celebration and blessings for the new year 2027 in the village of "
                 "Chico Curumim, with our Huni Kuin family.",
-    "hero.meta": "27 Dec 2026 – 8 Jan 2027 · Jordão river, Acre · 8 places only",
+    "hero.meta": "20 Dec 2026 – 4 Jan 2027 · Jordão river, Acre · 8 places only",
     "hero.cta": "I'm coming",
     "hero.cta2": "What awaits us ↓",
     "hero.cta3": "Play",
@@ -532,53 +532,53 @@ EN = {
     "cesta.praha.jmeno": "Prague",
     "cesta.praha.pod": "departure",
     "cesta.praha.h": "Prague · departure",
-    "cesta.praha.p": "We leave on 26 December. You book your own Prague – São Paulo – "
+    "cesta.praha.p": "We leave on 20 December. You book your own Prague – São Paulo – "
                      "Prague flight; it usually costs around 1 000 to 1 200 € including "
                      "checked baggage. <strong>The earlier you book, the "
                      "better.</strong>",
     "cesta.praha.spoj": "aircraft",
     "cesta.saopaulo.jmeno": "São Paulo",
-    "cesta.saopaulo.pod": "day 1 · 26 Dec",
-    "cesta.saopaulo.h": "Day 1 · 26 Dec · São Paulo",
+    "cesta.saopaulo.pod": "day 1 · 20 Dec",
+    "cesta.saopaulo.h": "Day 1 · 20 Dec · São Paulo",
     "cesta.saopaulo.p": "Arrival in the colourful city of São Paulo. We spend the night in "
                         "the city, hotel, rooms for two.",
     "cesta.saopaulo.spoj": "aircraft",
     "cesta.riobranco.jmeno": "Rio Branco",
-    "cesta.riobranco.pod": "day 2 · 27 Dec",
-    "cesta.riobranco.h": "Day 2 · 27 Dec · Rio Branco",
+    "cesta.riobranco.pod": "day 2 · 21 Dec",
+    "cesta.riobranco.h": "Day 2 · 21 Dec · Rio Branco",
     "cesta.riobranco.p": "Flight to the Brazilian state of Acre, which lies on the border "
                          "with Peru. We land in the city of Rio Branco.",
     "cesta.riobranco.spoj": "car",
     "cesta.taruaca.jmeno": "Tarauacá",
-    "cesta.taruaca.pod": "day 3 · 28 Dec",
-    "cesta.taruaca.h": "Day 3 · 28 Dec · Tarauacá",
+    "cesta.taruaca.pod": "day 3 · 22 Dec",
+    "cesta.taruaca.h": "Day 3 · 22 Dec · Tarauacá",
     "cesta.taruaca.p": "By car to the small town of Tarauacá, from where we head further "
                        "into the jungle. The tarmac ends here.",
     "cesta.taruaca.spoj": "small plane",
     "cesta.jordao.jmeno": "Jordão",
-    "cesta.jordao.pod": "day 4 · 29 Dec",
-    "cesta.jordao.h": "Day 4 · 29 Dec · Jordão",
+    "cesta.jordao.pod": "day 4 · 23 Dec",
+    "cesta.jordao.h": "Day 4 · 23 Dec · Jordão",
     "cesta.jordao.p": "Transfer by small plane to the little town of Jordão, hidden deep "
                       "in the Amazon. <strong>Last chance to stock up on gear or "
                       "food</strong>. Rubber boots can be bought right here. From here we "
                       "continue by boat.",
     "cesta.jordao.spoj": "boat",
     "cesta.vesnice.jmeno": "Chico Curumim",
-    "cesta.vesnice.pod": "days 5–13",
-    "cesta.vesnice.h": "Days 5 to 13 · 29 Dec – 6 Jan · Chico Curumim",
-    "cesta.vesnice.p": "Nine days in the village. Immersion in the mystery of rituals and "
+    "cesta.vesnice.pod": "days 5–15",
+    "cesta.vesnice.h": "Days 5 to 15 · 23 Dec – 2 Jan · Chico Curumim",
+    "cesta.vesnice.p": "Eleven days in the village. Immersion in the mystery of rituals and "
                        "ceremonies, getting to know everyday life and its natural rhythm. "
                        "We will get a glimpse into traditional fishing, the gathering of "
                        "medicinal herbs, and dances.",
     "cesta.zpatky.nadpis": "And the same way back",
-    "cesta.zpatky.p": "<strong>6 Jan</strong> by boat to Jordão, where we spend one night "
-                      "and slowly begin adapting to the “outside world”. <strong>7 "
-                      "Jan</strong> to Tarauacá and on to Rio Branco. <strong>8 "
+    "cesta.zpatky.p": "<strong>2 Jan</strong> by boat to Jordão, where we spend one night "
+                      "and slowly begin adapting to the “outside world”. <strong>3 "
+                      "Jan</strong> to Tarauacá and on to Rio Branco. <strong>4 "
                       "Jan</strong> morning flight to São Paulo, evening flight home. Or "
                       "stay longer in Brazil on your own.",
     "letecka.alt": "The village of Chico Curumim from above, thatched houses by the Jordão river",
     "letecka.pop": "This is what Chico Curumim actually looks like",
-    "vesnice.nadpis": "Nine days in the village",
+    "vesnice.nadpis": "Eleven days in the village",
     "kam.nadpis": "Where we go",
     "vesnice.vyzva.siroke": "Click the orange dots to see what awaits us.",
     "vesnice.vyzva.uzke": "Pick a stop to see what awaits us.",
@@ -645,22 +645,22 @@ EN = {
     "program.nadpis": "Preliminary programme",
     "program.pod": "which may change according to the plan of the Great Spirit",
     "program.d5": "Arrival in the village",
-    "program.d5.t": "29 Dec",
+    "program.d5.t": "23 Dec",
     "program.d67": "New Year's ceremonies, celebration of life, cleansing rituals",
     "program.d67.t": "30 and 31 Dec",
     "program.d8": "Rest, the blessing of the jungle, and a visit to the sacred "
                   "Samaúma tree",
-    "program.d8.t": "1 Jan 2027",
+    "program.d8.t": "24 and 25 Dec",
     "program.d9": "Daytime ceremony, time and space for visions for the new year",
-    "program.d9.t": "2 Jan",
+    "program.d9.t": "26 Dec",
     "program.d10": "Ceremony in a smaller circle",
-    "program.d10.t": "3 Jan",
+    "program.d10.t": "27 Dec",
     "program.d11": "Gathering herbs in the forest and preparing for the ceremony",
-    "program.d11.t": "4 Jan",
+    "program.d11.t": "28 and 29 Dec",
     "program.d12": "Closing ceremony",
-    "program.d12.t": "5 Jan",
+    "program.d12.t": "1 Jan 2027",
     "program.d13": "Morning boat back to Jordão",
-    "program.d13.t": "6 Jan",
+    "program.d13.t": "2 Jan",
     "lide.nadpis": "Who will welcome you in the village",
     "lide.tamani.jmeno": "Tamani",
     "lide.tamani.role": "chief of the village",
@@ -779,7 +779,7 @@ EN = {
     "cena.nezahrnuje.5": "travel insurance",
     "cena.platba.nadpis": "How payment works",
     "cena.platba.1": "A deposit of 1 000 € when booking. That secures your place.",
-    "cena.platba.2": "The rest by 27 November 2026, a month before the trip.",
+    "cena.platba.2": "The rest by 27 November 2026.",
     "cena.platba.pozn": "We will send you the account details and the full payment schedule "
                         "once we have spoken.",
     "cena.storno.nadpis": "Cancellation policy",
@@ -877,7 +877,7 @@ EN = {
     "hero.site": "curadafloresta.org",
     "foot.wa": "Write on WhatsApp",
     "foot.znovu": "Play the journey again",
-    "sticky.label": "Amazon · 27 Dec – 8 Jan",
+    "sticky.label": "Amazon · 20 Dec – 4 Jan",
     "sticky.cta": "I'm coming",
     "pas.nadpis": "The village of Chico Curumim",
     "pas1.alt": "A hut in the village of Chico Curumim",
@@ -908,7 +908,7 @@ EN = {
     "pristav.hlaska.blizko": "The village on the horizon. We're home.",
     "usek.uvod": "Where we're going",
     "usek.cesta": "How we get there",
-    "usek.vesnice": "Nine days in the village",
+    "usek.vesnice": "Eleven days in the village",
     "usek.program": "Programme",
     "usek.lide": "The people",
     "usek.bezpeci": "Ceremonies and safety",

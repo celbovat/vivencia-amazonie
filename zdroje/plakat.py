@@ -149,7 +149,7 @@ h1 em {{ font-style:normal; color:{YELLOW}; }}
     <h1>Celebrate<br>the New Year<br><em>in the Amazon</em></h1>
     <p class="podnadpis">Twelve days with the Huni Kuin in the village
       of Chico Curumim, deep in the Brazilian rainforest.</p>
-    <p class="termin">27 December 2026 &ndash; 8 January 2027</p>
+    <p class="termin">20 December 2026 &ndash; 4 January 2027</p>
   </div>
 </div>
 
