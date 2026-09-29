@@ -121,7 +121,7 @@ CS = {
     "cesta.vesnice.jmeno": "Chico Curumim",
     "cesta.vesnice.pod": "den 5–15",
     "cesta.vesnice.h": "Den 5 až 15 · 23. 12. – 2. 1. · Chico Curumim",
-    "cesta.vesnice.p": "Jedenáct dní ve vesnici. Ponoření do tajemství rituálů a ceremonií, "
+    "cesta.vesnice.p": "Ponoření do tajemství rituálů a ceremonií, "
                        "poznávání každodenního života a jeho přirozeného rytmu. Nahlédneme "
                        "do tradičního lovu ryb, sběru léčivých bylin i tanců.",
     "cesta.zpatky.nadpis": "A stejnou cestou zpátky",
@@ -132,7 +132,6 @@ CS = {
                       "zůstat v Brazílii individuálně déle.",
     "letecka.alt": "Vesnice Chico Curumim z výšky, doškové domy nad řekou Jordão",
     "letecka.pop": "Takhle vypadá Chico Curumim doopravdy",
-    "vesnice.nadpis": "Jedenáct dní ve vesnici",
     "kam.nadpis": "Kam jedeme",
     "vesnice.vyzva.siroke": "Klikněte na oranžové puntíky a podívejte se, co nás čeká.",
     "vesnice.vyzva.uzke": "Vyberte si zastavení a podívejte se, co nás čeká.",
@@ -444,7 +443,6 @@ CS = {
     "pristav.hlaska.blizko": "Vesnice na obzoru. Jsme doma.",
     "usek.uvod": "Kam jedeme",
     "usek.cesta": "Jak se tam dostaneme",
-    "usek.vesnice": "Jedenáct dní ve vesnici",
     "usek.program": "Program",
     "usek.lide": "Lidé",
     "usek.bezpeci": "Ceremonie a bezpečí",
@@ -566,7 +564,7 @@ EN = {
     "cesta.vesnice.jmeno": "Chico Curumim",
     "cesta.vesnice.pod": "days 5–15",
     "cesta.vesnice.h": "Days 5 to 15 · 23 Dec – 2 Jan · Chico Curumim",
-    "cesta.vesnice.p": "Eleven days in the village. Immersion in the mystery of rituals and "
+    "cesta.vesnice.p": "Immersion in the mystery of rituals and "
                        "ceremonies, getting to know everyday life and its natural rhythm. "
                        "We will get a glimpse into traditional fishing, the gathering of "
                        "medicinal herbs, and dances.",
@@ -578,7 +576,6 @@ EN = {
                       "stay longer in Brazil on your own.",
     "letecka.alt": "The village of Chico Curumim from above, thatched houses by the Jordão river",
     "letecka.pop": "This is what Chico Curumim actually looks like",
-    "vesnice.nadpis": "Eleven days in the village",
     "kam.nadpis": "Where we go",
     "vesnice.vyzva.siroke": "Click the orange dots to see what awaits us.",
     "vesnice.vyzva.uzke": "Pick a stop to see what awaits us.",
@@ -908,7 +905,6 @@ EN = {
     "pristav.hlaska.blizko": "The village on the horizon. We're home.",
     "usek.uvod": "Where we're going",
     "usek.cesta": "How we get there",
-    "usek.vesnice": "Eleven days in the village",
     "usek.program": "Programme",
     "usek.lide": "The people",
     "usek.bezpeci": "Ceremonies and safety",

@@ -672,7 +672,6 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    {vesnice_nadpis_h3}
     <p class="lead">
       <span class="jen-siroke" data-i18n="vesnice.vyzva.siroke">{vyzva_s}</span>
       <span class="jen-uzke" data-i18n="vesnice.vyzva.uzke">{vyzva_u}</span>
@@ -995,7 +994,6 @@ def sestav():
         cesta_nadpis=txt("cesta.nadpis", "h2", "nadpis-sekce"),
         cesta_vyzva=txt("cesta.vyzva", "p", "lead"),
         trasa=trasa(), karty_cesta=karty_cesta(), zavrit=CS["zavrit"],
-        vesnice_nadpis_h3=txt("vesnice.nadpis", "h3", "podnadpis"),
         vyzva_s=CS["vesnice.vyzva.siroke"], vyzva_u=CS["vesnice.vyzva.uzke"],
         scena=SV.svg(), body=body_vesnice(),
         karty_vesnice=karty_vesnice(), chipy=chipy_vesnice(),
