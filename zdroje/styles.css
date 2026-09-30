@@ -708,7 +708,7 @@ a { color: inherit; }
    ============================================================ */
 
 .trasa { margin-top: clamp(1.6rem, 5vw, 2.4rem); }
-/* Na úzkém displeji se trasa i vesnice posouvají do stran.
+/* Na úzkém displeji se trasa posouvá do stran.
    Bez náznaku u hrany to čtenář nepozná, tak tam dáme zeslabení. */
 .posuvne { position: relative; }
 .posuvne::after {
@@ -825,8 +825,9 @@ a { color: inherit; }
    ============================================================ */
 
 .vesnice { position: relative; margin-top: 1rem; margin-inline: calc(var(--gutter) * -0.5); }
-.vesnice__posuv { overflow-x: auto; overscroll-behavior-x: contain; }
-.vesnice__ramec { position: relative; min-width: 30rem; }
+/* Scéna se na telefonu vejde celá. Dřív měla min. 30rem a pravá třetina
+   (chýše, síť, tanečníci) zůstávala schovaná za hranou displeje. */
+.vesnice__ramec { position: relative; }
 .scena__svg { width: 100%; height: auto; display: block; }
 
 .bod {
@@ -867,6 +868,12 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   .bod::after { animation: none; opacity: 0.4; }
+}
+/* na telefonu je scéna zmenšená, plné puntíky by zakryly postavy;
+   dotyková plocha zůstává 44 px (viz pointer: coarse) */
+@media (max-width: 40rem) {
+  .bod span { width: 0.75rem; height: 0.75rem; box-shadow: 0 0 0 0.22rem rgba(255, 242, 217, 0.9); }
+  .bod::after { inset: 0.6rem; }
 }
 .bod:hover span, .bod:focus-visible span { transform: scale(1.35); }
 .bod[aria-pressed="true"] span {
@@ -1472,7 +1479,6 @@ a { color: inherit; }
   .lista { padding-left: calc(var(--gutter) + var(--osa)); }
   .jen-uzke { display: none; }
   .jen-siroke { display: inline; }
-  .vesnice__ramec { min-width: 0; }
 }
 
 /* ohlas skutečného člověka, převzatý z pobytové stránky */

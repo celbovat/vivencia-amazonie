@@ -750,7 +750,7 @@ a { color: inherit; }
    ============================================================ */
 
 .trasa { margin-top: clamp(1.6rem, 5vw, 2.4rem); }
-/* Na úzkém displeji se trasa i vesnice posouvají do stran.
+/* Na úzkém displeji se trasa posouvá do stran.
    Bez náznaku u hrany to čtenář nepozná, tak tam dáme zeslabení. */
 .posuvne { position: relative; }
 .posuvne::after {
@@ -867,8 +867,9 @@ a { color: inherit; }
    ============================================================ */
 
 .vesnice { position: relative; margin-top: 1rem; margin-inline: calc(var(--gutter) * -0.5); }
-.vesnice__posuv { overflow-x: auto; overscroll-behavior-x: contain; }
-.vesnice__ramec { position: relative; min-width: 30rem; }
+/* Scéna se na telefonu vejde celá. Dřív měla min. 30rem a pravá třetina
+   (chýše, síť, tanečníci) zůstávala schovaná za hranou displeje. */
+.vesnice__ramec { position: relative; }
 .scena__svg { width: 100%; height: auto; display: block; }
 
 .bod {
@@ -909,6 +910,12 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   .bod::after { animation: none; opacity: 0.4; }
+}
+/* na telefonu je scéna zmenšená, plné puntíky by zakryly postavy;
+   dotyková plocha zůstává 44 px (viz pointer: coarse) */
+@media (max-width: 40rem) {
+  .bod span { width: 0.75rem; height: 0.75rem; box-shadow: 0 0 0 0.22rem rgba(255, 242, 217, 0.9); }
+  .bod::after { inset: 0.6rem; }
 }
 .bod:hover span, .bod:focus-visible span { transform: scale(1.35); }
 .bod[aria-pressed="true"] span {
@@ -1514,7 +1521,6 @@ a { color: inherit; }
   .lista { padding-left: calc(var(--gutter) + var(--osa)); }
   .jen-uzke { display: none; }
   .jen-siroke { display: inline; }
-  .vesnice__ramec { min-width: 0; }
 }
 
 /* ohlas skutečného člověka, převzatý z pobytové stránky */
@@ -2117,9 +2123,8 @@ a { color: inherit; }
       <span class="jen-uzke" data-i18n="vesnice.vyzva.uzke">Vyberte si zastavení a podívejte se, co nás čeká.</span>
     </p>
     <div class="vesnice">
-      <div class="vesnice__posuv posuvne">
-        <div class="vesnice__ramec">
-          <svg class="scena__svg" viewBox="0 0 1200 700" aria-hidden="true" focusable="false">
+      <div class="vesnice__ramec">
+        <svg class="scena__svg" viewBox="0 0 1200 700" aria-hidden="true" focusable="false">
 <defs>
   <path id="frond" d="M0 0 C 40 -28, 106 -25, 144 0 C 106 25, 40 28, 0 0 Z" />
 </defs>
@@ -2243,7 +2248,7 @@ a { color: inherit; }
 <!-- banovniky ve vesnici -->
 <g id="zelen-u-vody"><path d="M295.2 506.0 C 295.7 438.5, 289.6 398.0, 290.2 356.0 L294.8 356.0 C 295.4 398.0, 304.3 438.5, 304.8 506.0 Z" fill="#1F3C36" /><ellipse cx="292.5" cy="358.1" rx="7.7" ry="5.8" fill="#1F3C36" /><path d="M294.9 356.5 Q 289.1 329.8 265.9 330.5 Q 268.7 340.6 290.1 359.1 Z" fill="#1F3C36" /><path d="M294.9 359.1 Q 319.9 342.6 319.1 330.5 Q 299.5 331.7 290.1 356.5 Z" fill="#1F3C36" /><path d="M294.2 354.9 Q 266.1 332.4 232.7 350.9 Q 252.0 356.8 290.8 360.7 Z" fill="#1F3C36" /><path d="M294.2 360.7 Q 335.4 361.1 352.3 350.9 Q 321.4 336.7 290.8 354.9 Z" fill="#1F3C36" /><path d="M292.6 354.9 Q 257.5 350.5 231.8 381.0 Q 257.1 375.3 292.4 360.7 Z" fill="#1F3C36" /><path d="M292.6 360.7 Q 328.0 379.6 353.2 381.0 Q 327.5 354.9 292.4 354.9 Z" fill="#1F3C36" /><path d="M358.2 516.0 C 358.6 462.9, 366.8 431.0, 367.3 398.0 L370.9 398.0 C 371.3 431.0, 365.4 462.9, 365.8 516.0 Z" fill="#1F3C36" /><ellipse cx="369.1" cy="399.7" rx="6.0" ry="4.5" fill="#1F3C36" /><path d="M371.0 398.4 Q 366.4 377.4 348.2 377.9 Q 350.4 385.9 367.2 400.4 Z" fill="#1F3C36" /><path d="M371.0 400.4 Q 390.6 387.4 390.0 377.9 Q 374.6 378.9 367.2 398.4 Z" fill="#1F3C36" /><path d="M370.4 397.2 Q 348.3 379.4 322.1 394.0 Q 337.3 398.6 367.8 401.7 Z" fill="#1F3C36" /><path d="M370.4 401.7 Q 402.9 402.0 416.1 394.0 Q 391.8 382.8 367.8 397.2 Z" fill="#1F3C36" /><path d="M369.1 397.1 Q 341.6 393.7 321.3 417.7 Q 341.2 413.2 369.0 401.7 Z" fill="#1F3C36" /><path d="M369.1 401.7 Q 397.0 416.6 416.8 417.7 Q 396.6 397.1 369.0 397.1 Z" fill="#1F3C36" /><path d="M802.7 468.0 C 803.0 421.2, 799.8 393.1, 800.2 364.0 L803.4 364.0 C 803.8 393.1, 809.0 421.2, 809.3 468.0 Z" fill="#1F3C36" /><ellipse cx="801.8" cy="365.5" rx="5.3" ry="4.0" fill="#1F3C36" /><path d="M803.5 364.4 Q 799.5 345.8 783.4 346.3 Q 785.3 353.4 800.2 366.1 Z" fill="#1F3C36" /><path d="M803.5 366.1 Q 820.8 354.7 820.3 346.3 Q 806.7 347.2 800.2 364.4 Z" fill="#1F3C36" /><path d="M803.0 363.3 Q 783.6 347.7 760.4 360.5 Q 773.8 364.6 800.7 367.2 Z" fill="#1F3C36" /><path d="M803.0 367.2 Q 831.6 367.5 843.3 360.5 Q 821.9 350.6 800.7 363.3 Z" fill="#1F3C36" /><path d="M801.9 363.2 Q 777.6 360.2 759.7 381.4 Q 777.3 377.4 801.8 367.3 Z" fill="#1F3C36" /><path d="M801.9 367.3 Q 826.4 380.4 843.9 381.4 Q 826.1 363.2 801.8 363.2 Z" fill="#1F3C36" /><path d="M1149.1 436.0 C 1149.4 395.5, 1154.8 371.2, 1155.1 346.0 L1157.9 346.0 C 1158.2 371.2, 1154.6 395.5, 1154.9 436.0 Z" fill="#1F3C36" /><ellipse cx="1156.5" cy="347.3" rx="4.6" ry="3.5" fill="#1F3C36" /><path d="M1157.9 346.3 Q 1154.5 330.3 1140.6 330.7 Q 1142.2 336.8 1155.1 347.8 Z" fill="#1F3C36" /><path d="M1157.9 347.8 Q 1172.9 337.9 1172.4 330.7 Q 1160.7 331.4 1155.1 346.3 Z" fill="#1F3C36" /><path d="M1157.5 345.4 Q 1140.7 331.9 1120.6 342.9 Q 1132.2 346.5 1155.5 348.8 Z" fill="#1F3C36" /><path d="M1157.5 348.8 Q 1182.3 349.1 1192.4 342.9 Q 1173.8 334.4 1155.5 345.4 Z" fill="#1F3C36" /><path d="M1156.5 345.3 Q 1135.5 342.7 1120.1 361.0 Q 1135.3 357.6 1156.5 348.8 Z" fill="#1F3C36" /><path d="M1156.5 348.8 Q 1177.8 360.2 1192.9 361.0 Q 1177.5 345.3 1156.5 345.3 Z" fill="#1F3C36" /></g>
 </svg>
-          <button type="button" class="bod" data-skupina="vesnice" data-cil="samauma" aria-pressed="false" style="left:12.5%;top:21.4%" data-i18n="scena.samauma.bod" data-i18n-attr="aria-label" aria-label="Posvátný strom Samaúma"><span></span></button>
+        <button type="button" class="bod" data-skupina="vesnice" data-cil="samauma" aria-pressed="false" style="left:12.5%;top:21.4%" data-i18n="scena.samauma.bod" data-i18n-attr="aria-label" aria-label="Posvátný strom Samaúma"><span></span></button>
           <button type="button" class="bod" data-skupina="vesnice" data-cil="reka" aria-pressed="false" style="left:36.7%;top:50.9%" data-i18n="scena.reka.bod" data-i18n-attr="aria-label" aria-label="Kanoe na řece"><span></span></button>
           <button type="button" class="bod" data-skupina="vesnice" data-cil="kupixawa" aria-pressed="false" style="left:51.2%;top:62.9%" data-i18n="scena.kupixawa.bod" data-i18n-attr="aria-label" aria-label="Kupixawa, kruhový dům uprostřed vesnice"><span></span></button>
           <button type="button" class="bod" data-skupina="vesnice" data-cil="hamaka" aria-pressed="false" style="left:79.2%;top:54.9%" data-i18n="scena.hamaka.bod" data-i18n-attr="aria-label" aria-label="Dřevěný domeček s hamakami"><span></span></button>
@@ -2251,7 +2256,6 @@ a { color: inherit; }
           <button type="button" class="bod" data-skupina="vesnice" data-cil="lazen" aria-pressed="false" style="left:54.1%;top:86.3%" data-i18n="scena.lazen.bod" data-i18n-attr="aria-label" aria-label="Kotel s bylinami a mísa s hlínou Mapu"><span></span></button>
           <button type="button" class="bod" data-skupina="vesnice" data-cil="kene" aria-pressed="false" style="left:75.5%;top:86.6%" data-i18n="scena.kene.bod" data-i18n-attr="aria-label" aria-label="Malování kené na tělo"><span></span></button>
           <button type="button" class="bod" data-skupina="vesnice" data-cil="tance" aria-pressed="false" style="left:89.3%;top:88.9%" data-i18n="scena.tance.bod" data-i18n-attr="aria-label" aria-label="Tanec ve vesnici"><span></span></button>
-        </div>
       </div>
       <div class="karta" id="karta-vesnice" hidden>
         <button type="button" class="karta__zavrit" id="zavrit-vesnice"

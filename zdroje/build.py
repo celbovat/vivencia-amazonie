@@ -677,11 +677,9 @@ HTML = """<!doctype html>
       <span class="jen-uzke" data-i18n="vesnice.vyzva.uzke">{vyzva_u}</span>
     </p>
     <div class="vesnice">
-      <div class="vesnice__posuv posuvne">
-        <div class="vesnice__ramec">
-          {scena}
-          {body}
-        </div>
+      <div class="vesnice__ramec">
+        {scena}
+        {body}
       </div>
       <div class="karta" id="karta-vesnice" hidden>
         <button type="button" class="karta__zavrit" id="zavrit-vesnice"
