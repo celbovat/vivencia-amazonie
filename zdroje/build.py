@@ -86,7 +86,7 @@ def modul(jmeno, soubor):
 
 C = modul("content", "content.py")
 SV = modul("scene_village", "scene_village.py")
-CS, EN = C.CS, C.EN
+CS, EN, PE = C.CS, C.EN, C.PE
 
 
 def b64(jmeno):
@@ -178,22 +178,27 @@ ZASTAVKY = [
 ]
 
 
+# Z Peru se jede rovnou z Puerto Maldonado autem, Sao Paulo se vynecha.
+MIMO_PERU = {"saopaulo"}
+
+
 def trasa():
     kusy = []
     for i, (klic, ik, spoj) in enumerate(ZASTAVKY):
+        mimo = ' data-mimo-peru' if klic in MIMO_PERU else ''
         kusy.append(
             '<button type="button" class="zastavka" data-skupina="cesta" '
-            'data-cil="%s" aria-pressed="false">'
+            'data-cil="%s" aria-pressed="false"%s>'
             '<span class="zastavka__krouzek">%s</span>'
             '%s%s</button>' % (
-                klic, ikona(ik),
+                klic, mimo, ikona(ik),
                 txt("cesta.%s.jmeno" % klic, "span", "zastavka__jmeno"),
                 txt("cesta.%s.pod" % klic, "span", "zastavka__pod")))
         if spoj:
             kusy.append(
-                '<span class="spojka" aria-hidden="true">'
+                '<span class="spojka" aria-hidden="true"%s>'
                 '<span class="spojka__cara"></span>%s</span>'
-                % txt("cesta.%s.spoj" % ZASTAVKY[i][0], "span", "spojka__jak"))
+                % (mimo, txt("cesta.%s.spoj" % ZASTAVKY[i][0], "span", "spojka__jak")))
     return "\n        ".join(kusy)
 
 
@@ -935,7 +940,7 @@ def sestav():
         had=IMG_HAD, rm_had=atr_rozmer(RM_HAD), hlas=HLAS,
         mail=MAIL, wa=WA, adresa=ADRESA,
         alt="Vesnice Chico Curumim shora, doškové chýše u řeky Jordão",
-        texty=json.dumps({"cs": CS, "en": EN}, ensure_ascii=False),
+        texty=json.dumps({"cs": CS, "en": EN, "pe": PE}, ensure_ascii=False),
         geo=(HERE / "geo.json").read_text(),
         js=(HERE / "app.js").read_text(),
         mereni=(HERE / "mereni.js").read_text(),

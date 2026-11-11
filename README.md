@@ -9,6 +9,16 @@ v brazilském Acre, 20. 12. 2026 až 3. 1. 2027.
 data jsou v něm vložené přímo, takže si stránka při načtení nesahá nikam ven.
 Proto má skoro 3 MB, a proto funguje i bez připojení.
 
+## Peruánská verze
+
+`journey.curadafloresta.org/peru` (přesměruje se přes `_redirects`) a
+`?from=peru` (QR na peruánských letácích a deckách) otevřou variantu pro
+turisty v Peru: jen anglicky, start v Puerto Maldonado sdíleným autem, ceny
+„on request“, doplatek do týdne od rezervace, storno 30 dní. Texty jsou ve
+slovníku `PE` v `content.py`, který přepisuje jen vybrané klíče z `EN`.
+Na běžné stránce po ní není ani odkaz. Přihláška z ní má v e-mailu
+řádek „Odkud: z Peru“ a v předmětu „PERU ·“.
+
 ## Jak ji znovu postavit
 
 ```bash

@@ -914,3 +914,64 @@ EN = {
     "vynulovat": "Reset ticks",
     "zavrit": "Close",
 }
+
+
+# Peruanska varianta. Otevre se jen pres journey.curadafloresta.org/peru
+# nebo ?from=peru (QR z peruanskych letaku a decku), na bezne strance po ni
+# neni ani stopa. Je jen anglicky: vezme se EN a tyhle klice ho prepisou.
+# Ceny v USD zatim nejsou, proto "on request". Cislo uctu na web nepatri,
+# posila se az po hovoru, stejne jako v ceske verzi.
+PE = {
+    "fakt.cena.v": "Price on request",
+    "hero.mapa.a": "Puerto Maldonado",
+    "hero.mapa.b": "4 changes",
+    "hero.mapa.alt": "The journey from Puerto Maldonado in Peru to the village of Chico "
+                     "Curumim on the Jordão river in Acre, Brazil",
+    "cesta.praha.jmeno": "Puerto Maldonado",
+    "cesta.praha.pod": "20 Dec · departure",
+    "cesta.praha.h": "20 Dec · Puerto Maldonado",
+    "cesta.praha.p": "Arrive in Puerto Maldonado by 19 December. Early on 20 December a "
+                     "shared car, <strong>booked and paid for by us</strong>, takes you "
+                     "across the Brazilian border to Rio Branco. Bring your passport: you "
+                     "get exit and entry stamps at the border. We are happy to help you "
+                     "plan your trip to Puerto Maldonado.",
+    "cesta.praha.spoj": "car",
+    "cesta.zpatky.p": "<strong>1 Jan</strong> by boat to Jordão, where we spend one night "
+                      "and slowly begin adapting to the “outside world”. <strong>2 "
+                      "Jan</strong> to Tarauacá and on to Rio Branco. <strong>3 "
+                      "Jan</strong> shared car back to Puerto Maldonado. If you would "
+                      "like to stay longer in Brazil, let us know.",
+    "prakt.vizum.dd": "EU citizens do not need a visa for stays in Brazil of up to 90 "
+                      "days. Other nationalities, please check with us. You should take "
+                      "out your own travel insurance with medical expenses coverage.",
+    "hloubka.meka.cena": "On request",
+    "hloubka.hapaya.cena": "On request",
+    "hloubka.hapaya.pozn": "Price of the journey with the initiation on request.",
+    "cena.hlavni.popis": "Basic price, transport from Puerto Maldonado and back included",
+    "cena.hlavni": "On request",
+    "cena.hapaya": "On request",
+    "cena.letenka.popis": "Travel to Puerto Maldonado, you arrange it yourself",
+    "cena.letenka": "Not included",
+    "cena.pozn": "Write to us and we will send you the current price.",
+    "cena.vcene.1": "all transport from Puerto Maldonado (Peru) and back",
+    "cena.nezahrnuje.1": "your travel to Puerto Maldonado",
+    "cena.platba.1": "A deposit when booking. That secures your place.",
+    "cena.platba.2": "The rest within one week of booking.",
+    "cena.storno.p": "Up to 30 days before departure we refund everything except costs "
+                     "already incurred. After that the deposit is non-refundable, but "
+                     "your place can be transferred to someone else.",
+    "kroky.3.h": "Your trip to Puerto Maldonado",
+    "kroky.3.p": "We will help you plan your trip to Puerto Maldonado, so it is "
+                 "nothing you need to worry about.",
+    "faq.6.a": "To all transport from Puerto Maldonado, boat transport, hotels along "
+               "the way, ceremonies and food in the village and organisational costs. "
+               "A part goes as a contribution to the Huni Kuin community for community "
+               "projects supporting the village's self-sufficiency and the "
+               "preservation of traditions.",
+    "faq.7.a": "Three days from Puerto Maldonado: on 20 Dec a shared car takes you "
+               "across the border to Rio Branco, then by car to Tarauacá, by small "
+               "plane to Jordão and finally by boat up the Jordão river to the village.",
+}
+
+_neznamy = sorted(set(PE) - set(EN))
+assert not _neznamy, "PE prepisuje klice, ktere v EN nejsou: %s" % _neznamy

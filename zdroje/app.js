@@ -31,6 +31,19 @@
   var T = window.TEXTY || { cs: {}, en: {} };
   var jazyk = "cs";
 
+  /* Peruánská varianta: přijde se na ni jen z peruánských letáků a decků,
+     přes /peru (přesměruje se na ?from=peru) nebo QR s ?from=peru. Je jen
+     anglicky: anglické texty se přepíšou těmi z T.pe a přepínač jazyka zmizí.
+     Volba se nikam neukládá, aby se běžná stránka nikomu nepřepnula. */
+  var PERU = /[?&]from=peru\b/.test(location.search)
+    || /^\/peru\/?$/.test(location.pathname);
+  if (PERU) {
+    document.documentElement.classList.add("peru");
+    var pe = T.pe || {};
+    for (var kPe in pe) if (Object.prototype.hasOwnProperty.call(pe, kPe)) T.en[kPe] = pe[kPe];
+    $$('a[href="?znovu"]').forEach(function (a) { a.setAttribute("href", "?znovu&from=peru"); });
+  }
+
   function prelozit(l) {
     jazyk = l;
     var slovnik = T[l] || {};
@@ -53,7 +66,7 @@
     $$(".jazyk button").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.getAttribute("data-jazyk") === l));
     });
-    pamet("cdf-vivencia-jazyk", l);
+    if (!PERU) pamet("cdf-vivencia-jazyk", l);
   }
 
   $$(".jazyk button").forEach(function (b) {
@@ -65,7 +78,7 @@
     var zUrl = /[?&]lang=en\b/.test(location.search) ? "en"
       : /[?&]lang=cs\b/.test(location.search) ? "cs" : null;
     var zProhlizece = (navigator.language || "cs").toLowerCase().indexOf("cs") === 0 ? "cs" : "en";
-    prelozit(zUrl || ulozeny || zProhlizece);
+    prelozit(PERU ? "en" : (zUrl || ulozeny || zProhlizece));
   })();
 
   function t(klic) { return (T[jazyk] && T[jazyk][klic]) || (T.cs && T.cs[klic]) || ""; }
@@ -1125,7 +1138,7 @@
           + (d.hloubka ? (jazyk === "en" ? "yes" : "ano") : (jazyk === "en" ? "no" : "ne")),
         (jazyk === "en" ? "Message" : "Zpráva") + ": "
           + (d.zprava || (jazyk === "en" ? "none" : "žádná"))
-      ].join("\n");
+      ].concat(PERU ? ["Travelling from: Peru (Puerto Maldonado)"] : []).join("\n");
     }
 
     function overit(d) {
@@ -1177,7 +1190,8 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           jmeno: d.jmeno, mail: d.mail, telefon: d.tel, vzkaz: d.zprava,
-          hloubka: d.hloubka, jazyk: jazyk, firma: d.past
+          hloubka: d.hloubka, jazyk: jazyk, firma: d.past,
+          odkud: PERU ? "peru" : ""
         })
       }).then(function (r) {
         return r.json().catch(function () { return {}; });

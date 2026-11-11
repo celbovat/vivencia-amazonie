@@ -14,7 +14,7 @@
 // Odpovídá se na adresu přihlášeného, ta se nastavuje jako replyTo.
 const ODESILATEL = { email: 'hello@curadafloresta.org', name: 'Přihláška z pozvánky' };
 const KOMU = { email: 'hello@curadafloresta.org', name: 'Cura da Floresta' };
-const PREDMET = 'Přihláška: Amazonie 27. 12. 2026 – 8. 1. 2027';
+const PREDMET = 'Přihláška: Amazonie 20. 12. 2026 – 3. 1. 2027';
 
 const orez = (v, max) => String(v == null ? '' : v).trim().slice(0, max);
 
@@ -43,11 +43,14 @@ export function sestavZpravu(telo) {
   const telefon = orez(telo.telefon, 60);
   const vzkaz = orez(telo.vzkaz, 4000);
   const anglicky = orez(telo.jazyk, 5) === 'en';
+  // Z peruánské varianty stránky (/peru, ?from=peru): jede z Puerto Maldonado.
+  const zPeru = orez(telo.odkud, 10) === 'peru';
 
   const radky = [['Jméno', jmeno], ['E-mail', mail]];
   if (telefon) radky.push(['Telefon', telefon]);
   radky.push(['Hãpaya / Huni Meka', telo.hloubka ? 'ano' : 'ne']);
   radky.push(['Přihláška vyplněna', anglicky ? 'anglicky' : 'česky']);
+  if (zPeru) radky.push(['Odkud', 'z Peru, peruánská verze stránky (start v Puerto Maldonado)']);
 
   const text = radky.map(([k, v]) => `${k}: ${v}`).join('\n')
     + (vzkaz ? `\n\nVzkaz:\n${vzkaz}` : '');
@@ -67,7 +70,7 @@ ${vzkaz ? `    <p style="margin:20px 0 0; color:#528E82;">Vzkaz</p>\n    <p styl
 </body>
 </html>`;
 
-  return { textContent: text, htmlContent: html, jmeno, mail };
+  return { textContent: text, htmlContent: html, jmeno, mail, zPeru };
 }
 
 export async function onRequestPost({ request, env }) {
@@ -91,7 +94,7 @@ export async function onRequestPost({ request, env }) {
   const vadne = zkontroluj(telo);
   if (vadne) return json({ error: vadne }, 400);
 
-  const { textContent, htmlContent, jmeno, mail } = sestavZpravu(telo);
+  const { textContent, htmlContent, jmeno, mail, zPeru } = sestavZpravu(telo);
 
   let res;
   try {
@@ -106,7 +109,7 @@ export async function onRequestPost({ request, env }) {
         sender: ODESILATEL,
         to: [KOMU],
         replyTo: { email: mail, name: jmeno },
-        subject: `${PREDMET}: ${jmeno}`,
+        subject: `${zPeru ? 'PERU · ' : ''}${PREDMET}: ${jmeno}`,
         textContent,
         htmlContent,
         tags: ['prihlaska-amazonie'],

@@ -1796,3 +1796,8 @@ a { color: inherit; }
     letter-spacing: 0.04em;
   }
 }
+
+/* Peruánská varianta (?from=peru, /peru): jen anglicky a bez São Paula,
+   z Peru se jede rovnou z Puerto Maldonado. */
+.peru [data-mimo-peru],
+.peru .jazyk { display: none !important; }
