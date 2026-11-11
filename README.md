@@ -1,7 +1,7 @@
 # Nový rok v Amazonii
 
 Jednostránková pozvánka na výpravu do vesnice Chico Curumim na řece Jordão
-v brazilském Acre, 27. 12. 2026 až 8. 1. 2027.
+v brazilském Acre, 20. 12. 2026 až 3. 1. 2027.
 
 Živě: https://journey.curadafloresta.org/ (Cloudflare Pages, nasazuje se samo z main)
 

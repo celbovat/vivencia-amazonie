@@ -13,16 +13,16 @@ Pravidla, ktera text drzi:
 
 CS = {
     "meta.jmeno": "Nový rok v Amazonii",
-    "meta.title": "Nový rok v Amazonii · vesnice Chico Curumim, 20. 12. 2026 – 4. 1. "
+    "meta.title": "Nový rok v Amazonii · vesnice Chico Curumim, 20. 12. 2026 – 3. 1. "
                   "2027",
-    "meta.desc": "Dvanáct dní u kmene Huni Kuin na řece Jordão v brazilském Acre. "
+    "meta.desc": "Deset dní u kmene Huni Kuin na řece Jordão v brazilském Acre. "
                  "Oslava a požehnání do nového roku 2027 ve vesnici Chico Curumim. "
                  "Maximálně osm míst.",
     "hapaya.alt": "Zasvěcení Hãpaya, čili paprička se podává zobákem ptáka Txana",
     "pdf.slib": "Podrobný program den po dni, seznam na sbalení, očkování, hygienu "
                 "a storno podmínky pošleme v PDF, jakmile se ozvete.",
     "fakt.kdy": "Kdy",
-    "fakt.kdy.v": "20. 12. 2026 až 4. 1. 2027",
+    "fakt.kdy.v": "20. 12. 2026 až 3. 1. 2027",
     "fakt.kde": "Kde",
     "fakt.kde.v": "Chico Curumim, řeka Jordão, Acre, Brazílie",
     "fakt.cena": "Cena",
@@ -60,7 +60,7 @@ CS = {
     "hero.h1.c": "v Amazonii",
     "hero.sub": "Oslava a požehnání do nového roku 2027 ve vesnici Chico Curumim, u "
                 "naší rodiny Huni Kuin.",
-    "hero.meta": "20. 12. 2026 – 4. 1. 2027 · řeka Jordão, Acre · maximálně 8 míst",
+    "hero.meta": "20. 12. 2026 – 3. 1. 2027 · řeka Jordão, Acre · maximálně 8 míst",
     "hero.cta": "Chci jet",
     "hero.cta2": "Co nás čeká ↓",
     "hero.cta3": "Zahraj si",
@@ -87,49 +87,48 @@ CS = {
     "cesta.praha.jmeno": "Praha",
     "cesta.praha.pod": "odlet",
     "cesta.praha.h": "Praha · odlet",
-    "cesta.praha.p": "Vyrážíme z Česka 20. prosince. Letenku Praha – São Paulo – Praha "
-                     "si kupujete sami, obvykle vyjde na 25 000 až 30 000 Kč včetně "
-                     "odbaveného zavazadla. <strong>Čím dřív ji koupíte, tím "
-                     "lépe.</strong>",
+    "cesta.praha.p": "Letenku do Rio Branco a zpět si kupujete sami, obvykle letí přes "
+                     "São Paulo. Pomůžeme vám najít vhodné spojení. <strong>Čím dřív "
+                     "ji koupíte, tím lépe.</strong>",
     "cesta.praha.spoj": "letadlo",
     "cesta.saopaulo.jmeno": "São Paulo",
-    "cesta.saopaulo.pod": "den 1 · 20. 12.",
-    "cesta.saopaulo.h": "Den 1 · 20. 12. · São Paulo",
-    "cesta.saopaulo.p": "Přílet do barevného São Paula. Přespíme ve městě, v hotelu, pokoje "
-                        "po dvou.",
+    "cesta.saopaulo.pod": "přestup",
+    "cesta.saopaulo.h": "São Paulo · přestup",
+    "cesta.saopaulo.p": "Většina letů do Rio Branco vede přes barevné São Paulo. Tuhle "
+                        "část cesty si zařizujete sami.",
     "cesta.saopaulo.spoj": "letadlo",
     "cesta.riobranco.jmeno": "Rio Branco",
-    "cesta.riobranco.pod": "den 2 · 21. 12.",
-    "cesta.riobranco.h": "Den 2 · 21. 12. · Rio Branco",
-    "cesta.riobranco.p": "Přelet do brazilského státu Acre, který se nachází na hranicích s "
-                         "Peru. Přistáváme ve městě Rio Branco.",
+    "cesta.riobranco.pod": "20. 12. · sraz",
+    "cesta.riobranco.h": "20. 12. · Rio Branco · sraz",
+    "cesta.riobranco.p": "Hlavní město brazilského státu Acre na hranicích s Peru. Tady se "
+                         "všichni potkáme a přespíme v hotelu, pokoje po dvou.",
     "cesta.riobranco.spoj": "auto",
     "cesta.taruaca.jmeno": "Tarauacá",
-    "cesta.taruaca.pod": "den 3 · 22. 12.",
-    "cesta.taruaca.h": "Den 3 · 22. 12. · Tarauacá",
+    "cesta.taruaca.pod": "21. 12.",
+    "cesta.taruaca.h": "21. 12. · Tarauacá",
     "cesta.taruaca.p": "Autem do městečka Tarauacá, odkud se vydáme do džungle. Asfalt "
                        "tady končí.",
     "cesta.taruaca.spoj": "malé letadlo",
     "cesta.jordao.jmeno": "Jordão",
-    "cesta.jordao.pod": "den 4 · 23. 12.",
-    "cesta.jordao.h": "Den 4 · 23. 12. · Jordão",
+    "cesta.jordao.pod": "22. 12.",
+    "cesta.jordao.h": "22. 12. · Jordão",
     "cesta.jordao.p": "Přesun malým letadlem do městečka Jordão, které se skrývá hluboko "
                       "v Amazonii. <strong>Poslední možnost dokoupit vybavení nebo "
                       "potraviny</strong>. Gumáky se dají koupit právě tady. Odsud "
                       "pokračujeme lodí.",
     "cesta.jordao.spoj": "loď",
     "cesta.vesnice.jmeno": "Chico Curumim",
-    "cesta.vesnice.pod": "den 5–15",
-    "cesta.vesnice.h": "Den 5 až 15 · 23. 12. – 2. 1. · Chico Curumim",
+    "cesta.vesnice.pod": "22.–31. 12.",
+    "cesta.vesnice.h": "22. 12. – 31. 12. · Chico Curumim",
     "cesta.vesnice.p": "Ponoření do tajemství rituálů a ceremonií, "
                        "poznávání každodenního života a jeho přirozeného rytmu. Nahlédneme "
                        "do tradičního lovu ryb, sběru léčivých bylin i tanců.",
     "cesta.zpatky.nadpis": "A stejnou cestou zpátky",
-    "cesta.zpatky.p": "<strong>2. 1.</strong> lodí do Jordão, kde přespíme jednu noc a "
-                      "pomalu se začneme adaptovat na „vnější svět“. <strong>3. "
-                      "1.</strong> do Tarauacá a dál do Rio Branco. <strong>4. "
-                      "1.</strong> ráno odlet do São Paula, večer domů. Nebo můžete "
-                      "zůstat v Brazílii individuálně déle.",
+    "cesta.zpatky.p": "<strong>1. 1.</strong> lodí do Jordão, kde přespíme jednu noc a "
+                      "pomalu se začneme adaptovat na „vnější svět“. <strong>2. "
+                      "1.</strong> do Tarauacá a dál do Rio Branco. <strong>3. "
+                      "1.</strong> odlet domů, nebo kamkoli budete pokračovat na své "
+                      "cestě.",
     "letecka.alt": "Vesnice Chico Curumim z výšky, doškové domy nad řekou Jordão",
     "letecka.pop": "Takhle vypadá Chico Curumim doopravdy",
     "kam.nadpis": "Kam jedeme",
@@ -194,21 +193,21 @@ CS = {
     "program.nadpis": "Předběžný program",
     "program.pod": "který se může měnit podle plánu Velkého ducha",
     "program.d5": "Příjezd do vesnice",
-    "program.d5.t": "23. 12.",
+    "program.d5.t": "22. 12.",
     "program.d67": "Novoroční ceremonie, oslava života, očistné rituály",
-    "program.d67.t": "30. a 31. 12.",
+    "program.d67.t": "29. a 30. 12.",
     "program.d8": "Odpočinek, požehnání džunglí a návštěva posvátného stromu Samaúma",
-    "program.d8.t": "24. a 25. 12.",
+    "program.d8.t": "23. a 24. 12.",
     "program.d9": "Denní ceremonie, čas a prostor pro vize do nového roku",
-    "program.d9.t": "26. 12.",
+    "program.d9.t": "25. 12.",
     "program.d10": "Ceremonie v menším kruhu",
-    "program.d10.t": "27. 12.",
+    "program.d10.t": "26. 12.",
     "program.d11": "Sbírání bylin v pralese a příprava na ceremonii",
-    "program.d11.t": "28. a 29. 12.",
+    "program.d11.t": "27. a 28. 12.",
     "program.d12": "Závěrečná ceremonie",
-    "program.d12.t": "1. 1. 2027",
+    "program.d12.t": "31. 12.",
     "program.d13": "Ráno lodí zpátky do Jordão",
-    "program.d13.t": "2. 1.",
+    "program.d13.t": "1. 1. 2027",
     "lide.nadpis": "Kdo vás ve vesnici přivítá",
     "lide.tamani.jmeno": "Tamani",
     "lide.tamani.role": "náčelnice vesnice",
@@ -299,22 +298,22 @@ CS = {
     "prakt.kontakt.dd": "hello@curadafloresta.org",
     "prakt.kontakt.q": "Nebo nám napište na",
     "cena.nadpis": "Kolik to stojí",
-    "cena.hlavni.popis": "Základní cena, bez letenky do a z Česka",
+    "cena.hlavni.popis": "Základní cena, bez letenky do Rio Branco a zpět",
     "cena.hlavni": "75 000 Kč",
     "cena.hapaya.popis": "Cena se zasvěcením Hãpaya",
     "cena.hapaya": "78 000 Kč",
-    "cena.letenka.popis": "Letenka Praha – São Paulo – Praha, kupujete si ji sami",
+    "cena.letenka.popis": "Letenka Praha – Rio Branco – Praha, kupujete si ji sami",
     "cena.letenka": "25–30 000 Kč",
     "cena.pozn": "Včasná platba nám umožní zajistit výhodnější letenky.",
     "cena.vcene.nadpis": "V ceně je zahrnuto",
-    "cena.vcene.1": "všechny vnitrostátní přelety po Brazílii",
+    "cena.vcene.1": "přelety malým letadlem mezi Tarauacá a Jordão",
     "cena.vcene.2": "doprava lodí do vesnice a z vesnice",
     "cena.vcene.3": "ubytování v hotelích po cestě, pokoje po dvou",
     "cena.vcene.4": "příspěvek komunitě Huni Kuin na projekty pro soběstačnost vesnice",
     "cena.vcene.5": "ceremonie a tradiční strava ve vesnici",
     "cena.vcene.6": "organizační náklady",
     "cena.nezahrnuje.nadpis": "Cena nezahrnuje",
-    "cena.nezahrnuje.1": "letenku do Brazílie a zpět",
+    "cena.nezahrnuje.1": "letenku do Rio Branco a zpět",
     "cena.nezahrnuje.2": "individuální a hlubší studium hudby a posvátných písní a modliteb "
                          "Huni Meka",
     "cena.nezahrnuje.3": "individuální léčení s léčiteli ve vesnici",
@@ -325,7 +324,7 @@ CS = {
     "cena.platba.2": "Zbytek do 27. 11. 2026.",
     "cena.platba.pozn": "Číslo účtu vám pošleme, jakmile si zavoláme.",
     "cena.storno.nadpis": "Storno podmínky",
-    "cena.storno.p": "Do 60 dnů před odletem vracíme vše kromě již vynaložených nákladů. "
+    "cena.storno.p": "Nejpozději 60 dní před odletem vracíme vše kromě již vynaložených nákladů. "
                      "Později je záloha nevratná, místo lze však převést na náhradníka.",
     "kroky.nadpis": "Jak se k nám můžete přidat",
     "kroky.1.h": "Napište nám",
@@ -335,8 +334,8 @@ CS = {
     "kroky.2.h": "Krátce si zavoláme",
     "kroky.2.p": "Poznáme se, zodpovíme všechny vaše otázky a projdeme spolu "
                  "praktické i zdravotní dotazy.",
-    "kroky.3.h": "Letenka do Brazílie",
-    "kroky.3.p": "Pomůžeme vám najít vhodnou letenku do Brazílie, takže s tím "
+    "kroky.3.h": "Letenka do Rio Branco",
+    "kroky.3.p": "Pomůžeme vám najít vhodnou letenku do Rio Branco, takže s tím "
                  "nebudete mít žádné starosti.",
     "kroky.4.h": "Zaplatíte zálohu",
     "kroky.4.p": "Po zaplacení zálohy vám zašleme více informací, které vám pomohou "
@@ -372,14 +371,14 @@ CS = {
     "faq.5.q": "Můžu jet sám nebo sama?",
     "faq.5.a": "Klidně, většina lidí jede sama. Skupinu držíme malou, takže se poznáme dřív, než dorazíme do vesnice.",
     "faq.6.q": "Kam jdou peníze, které zaplatím?",
-    "faq.6.a": "Na vnitrostátní přelety, dopravu lodí, hotely po cestě, ceremonie "
+    "faq.6.a": "Na přelety malým letadlem, dopravu lodí, hotely po cestě, ceremonie "
                "a stravu ve vesnici a organizační náklady. Část jde jako příspěvek "
                "komunitě Huni Kuin na komunitní projekty, které podporují "
                "soběstačnost vesnice a udržování tradic.",
     "faq.7.q": "Jak dlouho trvá cesta do vesnice?",
-    "faq.7.a": "Od odletu z Prahy čtyři dny: letadlem do São Paula, dál do Rio "
-               "Branco, autem do Tarauacá, malým letadlem do Jordão a nakonec lodí "
-               "po řece Jordão do vesnice.",
+    "faq.7.a": "Do Rio Branco přiletíte sami, obvykle přes São Paulo. Od srazu tam "
+               "20. 12. jsou to dva dny: autem do Tarauacá, malým letadlem do Jordão "
+               "a nakonec lodí po řece Jordão do vesnice.",
     "zajem.nadpis": "Nechte nám e-mail",
     "zajem.text": "Ozveme se, až bude o čem psát: až se ustálí program, kolik zbývá míst a co cesta stojí. Zároveň vás zařadíme do losování o 20 g rapé.",
     "zajem.mail": "Váš e-mail",
@@ -414,7 +413,7 @@ CS = {
     "hero.site": "curadafloresta.org",
     "foot.wa": "Napište na WhatsApp",
     "foot.znovu": "Pustit cestu znovu",
-    "sticky.label": "Amazonie · 20. 12. – 4. 1.",
+    "sticky.label": "Amazonie · 20. 12. – 3. 1.",
     "sticky.cta": "Chci jet",
     "pas.nadpis": "Vesnice Chico Curumim",
     "pas1.alt": "Chatrč ve vesnici Chico Curumim",
@@ -455,16 +454,16 @@ CS = {
 
 EN = {
     "meta.jmeno": "New Year in the Amazon",
-    "meta.title": "New Year in the Amazon · Chico Curumim village, 20 Dec 2026 – 4 "
+    "meta.title": "New Year in the Amazon · Chico Curumim village, 20 Dec 2026 – 3 "
                   "Jan 2027",
-    "meta.desc": "Twelve days with the Huni Kuin on the Jordão river in Acre, "
+    "meta.desc": "Ten days with the Huni Kuin on the Jordão river in Acre, "
                  "Brazil. Celebration and blessings for the new year 2027 in the "
                  "village of Chico Curumim. Eight places only.",
     "hapaya.alt": "The Hãpaya initiation, chilli applied with the beak of the Txana bird",
     "pdf.slib": "The day by day programme, the packing list, vaccinations, hygiene and "
                 "the cancellation policy come in a PDF as soon as you get in touch.",
     "fakt.kdy": "When",
-    "fakt.kdy.v": "20 Dec 2026 to 4 Jan 2027",
+    "fakt.kdy.v": "20 Dec 2026 to 3 Jan 2027",
     "fakt.kde": "Where",
     "fakt.kde.v": "Chico Curumim, Jordão river, Acre, Brazil",
     "fakt.cena": "Price",
@@ -502,14 +501,14 @@ EN = {
     "hero.h1.c": "in the Amazon",
     "hero.sub": "Celebration and blessings for the new year 2027 in the village of "
                 "Chico Curumim, with our Huni Kuin family.",
-    "hero.meta": "20 Dec 2026 – 4 Jan 2027 · Jordão river, Acre · 8 places only",
+    "hero.meta": "20 Dec 2026 – 3 Jan 2027 · Jordão river, Acre · 8 places only",
     "hero.cta": "I'm coming",
     "hero.cta2": "What awaits us ↓",
     "hero.cta3": "Play",
-    "hero.mapa.a": "Prague",
+    "hero.mapa.a": "Your country",
     "hero.mapa.b": "5 changes",
     "hero.mapa.c": "Chico Curumim",
-    "hero.mapa.alt": "The journey from Prague to the village of Chico Curumim on the "
+    "hero.mapa.alt": "The journey from your country to the village of Chico Curumim on the "
                      "Jordão river in Acre, Brazil",
     "intro.lede": "A journey to the Amazon will show us how traditional tribes still "
                   "live in connection with nature.",
@@ -527,53 +526,53 @@ EN = {
              "part of nature and are not separate from it.",
     "cesta.nadpis": "How we get there",
     "cesta.vyzva": "Tap a stop to see what that day involves.",
-    "cesta.praha.jmeno": "Prague",
+    "cesta.praha.jmeno": "Your country",
     "cesta.praha.pod": "departure",
-    "cesta.praha.h": "Prague · departure",
-    "cesta.praha.p": "We leave on 20 December. You book your own Prague – São Paulo – "
-                     "Prague flight; it usually costs around 1 000 to 1 200 € including "
-                     "checked baggage. <strong>The earlier you book, the "
-                     "better.</strong>",
+    "cesta.praha.h": "Your country · departure",
+    "cesta.praha.p": "You book your own flight to Rio Branco and back, usually via São "
+                     "Paulo. We'll help you find a good connection. <strong>The earlier "
+                     "you book, the better.</strong>",
     "cesta.praha.spoj": "aircraft",
     "cesta.saopaulo.jmeno": "São Paulo",
-    "cesta.saopaulo.pod": "day 1 · 20 Dec",
-    "cesta.saopaulo.h": "Day 1 · 20 Dec · São Paulo",
-    "cesta.saopaulo.p": "Arrival in the colourful city of São Paulo. We spend the night in "
-                        "the city, hotel, rooms for two.",
+    "cesta.saopaulo.pod": "connection",
+    "cesta.saopaulo.h": "São Paulo · connection",
+    "cesta.saopaulo.p": "Most flights to Rio Branco go via colourful São Paulo. You "
+                        "arrange this part of the journey yourself.",
     "cesta.saopaulo.spoj": "aircraft",
     "cesta.riobranco.jmeno": "Rio Branco",
-    "cesta.riobranco.pod": "day 2 · 21 Dec",
-    "cesta.riobranco.h": "Day 2 · 21 Dec · Rio Branco",
-    "cesta.riobranco.p": "Flight to the Brazilian state of Acre, which lies on the border "
-                         "with Peru. We land in the city of Rio Branco.",
+    "cesta.riobranco.pod": "20 Dec · meeting point",
+    "cesta.riobranco.h": "20 Dec · Rio Branco · meeting point",
+    "cesta.riobranco.p": "The capital of the Brazilian state of Acre, on the border with "
+                         "Peru. This is where we all meet and spend the night in a hotel, "
+                         "rooms for two.",
     "cesta.riobranco.spoj": "car",
     "cesta.taruaca.jmeno": "Tarauacá",
-    "cesta.taruaca.pod": "day 3 · 22 Dec",
-    "cesta.taruaca.h": "Day 3 · 22 Dec · Tarauacá",
+    "cesta.taruaca.pod": "21 Dec",
+    "cesta.taruaca.h": "21 Dec · Tarauacá",
     "cesta.taruaca.p": "By car to the small town of Tarauacá, from where we head further "
                        "into the jungle. The tarmac ends here.",
     "cesta.taruaca.spoj": "small plane",
     "cesta.jordao.jmeno": "Jordão",
-    "cesta.jordao.pod": "day 4 · 23 Dec",
-    "cesta.jordao.h": "Day 4 · 23 Dec · Jordão",
+    "cesta.jordao.pod": "22 Dec",
+    "cesta.jordao.h": "22 Dec · Jordão",
     "cesta.jordao.p": "Transfer by small plane to the little town of Jordão, hidden deep "
                       "in the Amazon. <strong>Last chance to stock up on gear or "
                       "food</strong>. Rubber boots can be bought right here. From here we "
                       "continue by boat.",
     "cesta.jordao.spoj": "boat",
     "cesta.vesnice.jmeno": "Chico Curumim",
-    "cesta.vesnice.pod": "days 5–15",
-    "cesta.vesnice.h": "Days 5 to 15 · 23 Dec – 2 Jan · Chico Curumim",
+    "cesta.vesnice.pod": "22–31 Dec",
+    "cesta.vesnice.h": "22–31 Dec · Chico Curumim",
     "cesta.vesnice.p": "Immersion in the mystery of rituals and "
                        "ceremonies, getting to know everyday life and its natural rhythm. "
                        "We will get a glimpse into traditional fishing, the gathering of "
                        "medicinal herbs, and dances.",
     "cesta.zpatky.nadpis": "And the same way back",
-    "cesta.zpatky.p": "<strong>2 Jan</strong> by boat to Jordão, where we spend one night "
-                      "and slowly begin adapting to the “outside world”. <strong>3 "
-                      "Jan</strong> to Tarauacá and on to Rio Branco. <strong>4 "
-                      "Jan</strong> morning flight to São Paulo, evening flight home. Or "
-                      "stay longer in Brazil on your own.",
+    "cesta.zpatky.p": "<strong>1 Jan</strong> by boat to Jordão, where we spend one night "
+                      "and slowly begin adapting to the “outside world”. <strong>2 "
+                      "Jan</strong> to Tarauacá and on to Rio Branco. <strong>3 "
+                      "Jan</strong> fly home, or continue your own journey wherever it "
+                      "takes you.",
     "letecka.alt": "The village of Chico Curumim from above, thatched houses by the Jordão river",
     "letecka.pop": "This is what Chico Curumim actually looks like",
     "kam.nadpis": "Where we go",
@@ -642,22 +641,22 @@ EN = {
     "program.nadpis": "Preliminary programme",
     "program.pod": "which may change according to the plan of the Great Spirit",
     "program.d5": "Arrival in the village",
-    "program.d5.t": "23 Dec",
+    "program.d5.t": "22 Dec",
     "program.d67": "New Year's ceremonies, celebration of life, cleansing rituals",
-    "program.d67.t": "30 and 31 Dec",
+    "program.d67.t": "29 and 30 Dec",
     "program.d8": "Rest, the blessing of the jungle, and a visit to the sacred "
                   "Samaúma tree",
-    "program.d8.t": "24 and 25 Dec",
+    "program.d8.t": "23 and 24 Dec",
     "program.d9": "Daytime ceremony, time and space for visions for the new year",
-    "program.d9.t": "26 Dec",
+    "program.d9.t": "25 Dec",
     "program.d10": "Ceremony in a smaller circle",
-    "program.d10.t": "27 Dec",
+    "program.d10.t": "26 Dec",
     "program.d11": "Gathering herbs in the forest and preparing for the ceremony",
-    "program.d11.t": "28 and 29 Dec",
+    "program.d11.t": "27 and 28 Dec",
     "program.d12": "Closing ceremony",
-    "program.d12.t": "1 Jan 2027",
+    "program.d12.t": "31 Dec",
     "program.d13": "Morning boat back to Jordão",
-    "program.d13.t": "2 Jan",
+    "program.d13.t": "1 Jan 2027",
     "lide.nadpis": "Who will welcome you in the village",
     "lide.tamani.jmeno": "Tamani",
     "lide.tamani.role": "chief of the village",
@@ -752,15 +751,15 @@ EN = {
     "prakt.kontakt.dd": "hello@curadafloresta.org",
     "prakt.kontakt.q": "Or write to us on",
     "cena.nadpis": "What it costs",
-    "cena.hlavni.popis": "Basic price, without the flight to and from Europe",
+    "cena.hlavni.popis": "Basic price, without your flight to and from Rio Branco",
     "cena.hlavni": "3 200 €",
     "cena.hapaya.popis": "Price with the Hãpaya initiation",
     "cena.hapaya": "3 325 €",
-    "cena.letenka.popis": "Flight Prague – São Paulo – Prague, you book it yourself",
+    "cena.letenka.popis": "Flight to Rio Branco and back, you book it yourself",
     "cena.letenka": "1 000–1 200 €",
     "cena.pozn": "Paying early lets us secure more affordable tickets.",
     "cena.vcene.nadpis": "The price includes",
-    "cena.vcene.1": "all domestic flights within Brazil",
+    "cena.vcene.1": "small-plane flights between Tarauacá and Jordão",
     "cena.vcene.2": "boat transport to and from the village",
     "cena.vcene.3": "hotel accommodation along the way, double rooms",
     "cena.vcene.4": "contribution to the Huni Kuin community for the village's "
@@ -768,7 +767,7 @@ EN = {
     "cena.vcene.5": "ceremonies and traditional food in the village",
     "cena.vcene.6": "organisational costs",
     "cena.nezahrnuje.nadpis": "The price does not include",
-    "cena.nezahrnuje.1": "the flight to Brazil and back",
+    "cena.nezahrnuje.1": "your flight to Rio Branco and back",
     "cena.nezahrnuje.2": "individual and deeper study of the music and sacred songs and "
                          "prayers of Huni Meka",
     "cena.nezahrnuje.3": "individual healing with healers in the village",
@@ -780,9 +779,9 @@ EN = {
     "cena.platba.pozn": "We will send you the account details and the full payment schedule "
                         "once we have spoken.",
     "cena.storno.nadpis": "Cancellation policy",
-    "cena.storno.p": "Within 60 days before departure we refund everything except costs "
-                     "already incurred. Later the deposit is non-refundable, but the "
-                     "seat can be transferred to a substitute.",
+    "cena.storno.p": "Up to 60 days before departure we refund everything except costs "
+                     "already incurred. After that the deposit is non-refundable, but "
+                     "your place can be transferred to someone else.",
     "kroky.nadpis": "How you can join us",
     "kroky.1.h": "Write to us",
     "kroky.1.p": "Write to hello@curadafloresta.org or fill in the form below so we "
@@ -791,8 +790,8 @@ EN = {
     "kroky.2.h": "We'll have a short call",
     "kroky.2.p": "We'll get to know each other, answer all your questions, and go "
                  "over practical and health-related questions together.",
-    "kroky.3.h": "Your flight to Brazil",
-    "kroky.3.p": "We will help you find a suitable flight to Brazil, so it is "
+    "kroky.3.h": "Your flight to Rio Branco",
+    "kroky.3.p": "We will help you find a suitable flight to Rio Branco, so it is "
                  "nothing you need to worry about.",
     "kroky.4.h": "You pay the deposit",
     "kroky.4.p": "After the deposit we will send you more information to help you "
@@ -831,15 +830,16 @@ EN = {
     "faq.5.q": "Can I come on my own?",
     "faq.5.a": "Of course, most people come alone. We keep the group small, so we get to know each other before we reach the village.",
     "faq.6.q": "Where does the money I pay go?",
-    "faq.6.a": "To domestic flights, boat transport, hotels along the way, "
+    "faq.6.a": "To the small-plane flights, boat transport, hotels along the way, "
                "ceremonies and food in the village and organisational costs. A "
                "part goes as a contribution to the Huni Kuin community for "
                "community projects supporting the village's self-sufficiency and "
                "the preservation of traditions.",
     "faq.7.q": "How long does the journey to the village take?",
-    "faq.7.a": "Four days from departure: by plane to São Paulo, on to Rio Branco, "
-               "by car to Tarauacá, by small plane to Jordão and finally by boat "
-               "up the Jordão river to the village.",
+    "faq.7.a": "You fly to Rio Branco on your own, usually via São Paulo. From the "
+               "meeting there on 20 Dec it takes two days: by car to Tarauacá, by "
+               "small plane to Jordão and finally by boat up the Jordão river to the "
+               "village.",
     "zajem.nadpis": "Leave us your e-mail",
     "zajem.text": "We will write when there is something worth writing about: when the programme firms up, how many places are left and what the journey costs. You also go into the draw for 20 g of rapé.",
     "zajem.mail": "Your e-mail",
@@ -874,7 +874,7 @@ EN = {
     "hero.site": "curadafloresta.org",
     "foot.wa": "Write on WhatsApp",
     "foot.znovu": "Play the journey again",
-    "sticky.label": "Amazon · 20 Dec – 4 Jan",
+    "sticky.label": "Amazon · 20 Dec – 3 Jan",
     "sticky.cta": "I'm coming",
     "pas.nadpis": "The village of Chico Curumim",
     "pas1.alt": "A hut in the village of Chico Curumim",
