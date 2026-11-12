@@ -913,7 +913,7 @@ EN = {
 # Peruanska varianta. Otevre se jen pres journey.curadafloresta.org/peru
 # nebo ?from=peru (QR z peruanskych letaku a decku), na bezne strance po ni
 # neni ani stopa. Je jen anglicky: vezme se EN a tyhle klice ho prepisou.
-# Zakladni cena 2 850 USD, Hapaya a studium Huni Meka zatim "on request". Cislo uctu na web nepatri,
+# Zakladni cena 2 850 USD, Hapaya +80 USD a studium 1 350 USD jako v unorove peruanske vyprave. Cislo uctu na web nepatri,
 # posila se az po hovoru, stejne jako v ceske verzi.
 PE = {
     "fakt.cena.v": "USD 2,850, transport from Puerto Maldonado included",
@@ -938,12 +938,12 @@ PE = {
     "prakt.vizum.dd": "EU citizens do not need a visa for stays in Brazil of up to 90 "
                       "days. Other nationalities, please check with us. You should take "
                       "out your own travel insurance with medical expenses coverage.",
-    "hloubka.meka.cena": "On request",
-    "hloubka.hapaya.cena": "On request",
-    "hloubka.hapaya.pozn": "Price of the journey with the initiation on request.",
+    "hloubka.meka.cena": "USD 1,350",
+    "hloubka.hapaya.cena": "+ USD 80",
+    "hloubka.hapaya.pozn": "Price of the journey with the initiation: USD 2,930.",
     "cena.hlavni.popis": "Basic price, transport from Puerto Maldonado and back included",
     "cena.hlavni": "USD 2,850",
-    "cena.hapaya": "On request",
+    "cena.hapaya": "USD 2,930",
     "cena.letenka.popis": "Travel to Puerto Maldonado, you arrange it yourself",
     "cena.letenka": "Not included",
     "cena.vcene.1": "all transport from Puerto Maldonado (Peru) and back",
