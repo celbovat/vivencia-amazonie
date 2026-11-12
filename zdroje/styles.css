@@ -1034,11 +1034,16 @@ a { color: inherit; }
    ============================================================ */
 
 .lide { display: grid; gap: 1.4rem; margin-top: 1.8rem; }
-@media (min-width: 44rem) { .lide { grid-template-columns: 1fr 1fr; gap: 1.6rem 2rem; } }
-/* Průvodkyně začínají vždy novým řádkem, ať se při lichém počtu lidí z vesnice
-   nepomíchají s nimi do jedné řady. */
+/* Mřížka má čtyři sloupce a každá karta zabírá dva, takže vypadá jako dvě
+   karty vedle sebe. Díky tomu jde poslední kartu z vesnice při lichém počtu
+   (teď Yube) posadit doprostřed řady. Průvodkyně pak začínají novým řádkem. */
 @media (min-width: 44rem) {
-  .lide .clovek:not(.clovek--pruvodce) + .clovek--pruvodce { grid-column-start: 1; }
+  .lide { grid-template-columns: repeat(4, 1fr); gap: 1.6rem 2rem; }
+  .lide .clovek { grid-column: span 2; }
+  .lide .clovek:not(.clovek--pruvodce):nth-child(odd):has(+ .clovek--pruvodce) {
+    grid-column: 2 / span 2;
+  }
+  .lide .clovek:not(.clovek--pruvodce) + .clovek--pruvodce { grid-column: 1 / span 2; }
 }
 .clovek {
   padding: 0 0 1.2rem;
