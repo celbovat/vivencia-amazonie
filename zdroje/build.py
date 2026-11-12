@@ -269,7 +269,7 @@ def program():
         for d in PROGRAM)
 
 
-LIDE = ["tamani", "shane", "yube", "paje"]
+LIDE = ["tamani", "shane", "yube"]
 
 
 def lide():
@@ -426,7 +426,7 @@ HTML = """<!doctype html>
   <div class="pristav__vrch">
     <div class="vrch__vlevo">
       <a class="domu" href="https://curadafloresta.org/" data-i18n="hero.site">{hero_site}</a>
-      <p class="pristav__km" id="pristav-hud" data-vidno="0">{km_popis}<b id="pristav-km">0 / 80</b></p>
+      <p class="pristav__km" id="pristav-hud" data-vidno="0"><span data-i18n="pristav.km">{km_popis}</span><b id="pristav-km">0 / 80</b></p>
     </div>
     <span class="pristav__ovladace">
       <span class="jazyk">

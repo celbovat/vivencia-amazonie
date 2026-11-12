@@ -165,8 +165,8 @@ CS = {
     "scena.ohen.bod": "Kruh u ohně, kytara a buben",
     "scena.ohen.chip": "Večer u ohně",
     "scena.ohen.h": "Společný čas u ohně a hudby",
-    "scena.ohen.p": "Večery patří ohni, zpěvu a hudbě. <strong>Ceremonie vede Pajé Siã "
-                    "nebo Shane spolu s rodinou náčelnice</strong>, přímo ve vesnici, "
+    "scena.ohen.p": "Večery patří ohni, zpěvu a hudbě. <strong>Ceremonie vede Shane "
+                    "spolu s rodinou náčelnice</strong>, přímo ve vesnici, "
                     "kde tato tradice nepřetržitě žije.",
     "scena.ohen.p2": "Účast na ceremoniích je zcela dobrovolná. Cesta má hlubokou "
                      "hodnotu i pro toho, kdo se jich účastnit nechce.",
@@ -220,9 +220,6 @@ CS = {
     "lide.yube.role": "čtvrtý syn náčelnice",
     "lide.yube.p": "Čtvrtý syn náčelnice. Pracuje s léčivými rostlinami, vede rituály, "
                    "dělá tradiční umění a zpívá.",
-    "lide.paje.jmeno": "Pajé Siã",
-    "lide.paje.role": "spirituální vůdce komunity",
-    "lide.paje.p": "Spirituální vůdce komunity a syn silného pajého Txana Tuin. Zájemce provede zasvěcením Hãpaya aneb otevřením hlasu.",
     "pruvodci.nadpis": "Kdo vás bude v džungli doprovázet",
     "pruvodci.karolina.role": "průvodkyně",
     "pruvodci.tereza.role": "průvodkyně",
@@ -235,7 +232,7 @@ CS = {
                          "moderním světem a tradičními kulturami. <strong>Pomůže vám "
                          "prožitky z džungle začlenit do každodenního života.</strong>",
     "bezpeci.nadpis": "Ceremonie a vaše bezpečí",
-    "bezpeci.p1": "Ceremonie vede Pajé Siã nebo Shane s rodinou náčelnice, přímo "
+    "bezpeci.p1": "Ceremonie vede Shane s rodinou náčelnice, přímo "
                   "ve vesnici. Učí se od svých předků napříč generacemi.",
     "bezpeci.p2": "<strong>Účast je zcela dobrovolná.</strong> Cesta má hlubokou "
                   "hodnotu i pro toho, kdo se jich účastnit nechce.",
@@ -262,7 +259,7 @@ CS = {
     "hloubka.hapaya.cena": "+ 3 000 Kč",
     "hloubka.hapaya.p": "Rituál otevírání hlasu. Používá se čili paprička aplikovaná "
                         "zobákem ptáka Txana. V následující dny zpíváme, aby požehnání "
-                        "působilo hluboko. Zasvěcením provede Pajé Siã.",
+                        "působilo hluboko.",
     "hloubka.hapaya.pozn": "Cena cesty se zasvěcením: 78 000 Kč.",
     "prakt.nadpis": "Prakticky",
     "prakt.jidlo.dt": "Co budeme jíst",
@@ -610,7 +607,7 @@ EN = {
     "scena.ohen.chip": "Evenings by the fire",
     "scena.ohen.h": "Time together by the fire and music",
     "scena.ohen.p": "The evenings belong to the fire, singing and music. "
-                    "<strong>Ceremonies are led by Pajé Siã or Shane together with the "
+                    "<strong>Ceremonies are led by Shane together with the "
                     "chief's family</strong>, right in the village, where this "
                     "tradition lives on.",
     "scena.ohen.p2": "Participation in the ceremonies is completely voluntary. The "
@@ -670,9 +667,6 @@ EN = {
     "lide.yube.role": "fourth son of the chief",
     "lide.yube.p": "The chief's fourth son. He works with medicinal plants, leads "
                    "rituals, makes traditional art and sings.",
-    "lide.paje.jmeno": "Pajé Siã",
-    "lide.paje.role": "spiritual leader of the community",
-    "lide.paje.p": "The spiritual leader of the community and son of the strong pajé Txana Tuin. He guides those interested through the Hãpaya initiation, the opening of the voice.",
     "pruvodci.nadpis": "Who will accompany you in the jungle",
     "pruvodci.karolina.role": "guide",
     "pruvodci.tereza.role": "guide",
@@ -686,7 +680,7 @@ EN = {
                          "between the modern world and traditional cultures. <strong>She "
                          "will help you bring the jungle back into everyday life.</strong>",
     "bezpeci.nadpis": "The ceremonies and your safety",
-    "bezpeci.p1": "The ceremonies are led by Pajé Siã or Shane with the chief's "
+    "bezpeci.p1": "The ceremonies are led by Shane with the chief's "
                   "family, right in the village. They learn from their ancestors "
                   "across generations.",
     "bezpeci.p2": "<strong>Taking part is entirely voluntary.</strong> The journey "
@@ -714,7 +708,7 @@ EN = {
     "hloubka.hapaya.cena": "+ 125 €",
     "hloubka.hapaya.p": "A voice-opening ritual using chilli pepper applied with the beak "
                         "of the Txana bird. In the days that follow we sing, so the "
-                        "blessing works deep. Pajé Siã leads the initiation.",
+                        "blessing works deep.",
     "hloubka.hapaya.pozn": "Price of the journey with the initiation: 3 325 €.",
     "prakt.nadpis": "Practical information",
     "prakt.jidlo.dt": "What we will eat",
