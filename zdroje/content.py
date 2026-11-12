@@ -919,10 +919,10 @@ EN = {
 # Peruanska varianta. Otevre se jen pres journey.curadafloresta.org/peru
 # nebo ?from=peru (QR z peruanskych letaku a decku), na bezne strance po ni
 # neni ani stopa. Je jen anglicky: vezme se EN a tyhle klice ho prepisou.
-# Ceny v USD zatim nejsou, proto "on request". Cislo uctu na web nepatri,
+# Zakladni cena 2 850 USD, Hapaya a studium Huni Meka zatim "on request". Cislo uctu na web nepatri,
 # posila se az po hovoru, stejne jako v ceske verzi.
 PE = {
-    "fakt.cena.v": "Price on request",
+    "fakt.cena.v": "USD 2,850, transport from Puerto Maldonado included",
     "hero.mapa.a": "Puerto Maldonado",
     "hero.mapa.b": "4 changes",
     "hero.mapa.alt": "The journey from Puerto Maldonado in Peru to the village of Chico "
@@ -948,11 +948,10 @@ PE = {
     "hloubka.hapaya.cena": "On request",
     "hloubka.hapaya.pozn": "Price of the journey with the initiation on request.",
     "cena.hlavni.popis": "Basic price, transport from Puerto Maldonado and back included",
-    "cena.hlavni": "On request",
+    "cena.hlavni": "USD 2,850",
     "cena.hapaya": "On request",
     "cena.letenka.popis": "Travel to Puerto Maldonado, you arrange it yourself",
     "cena.letenka": "Not included",
-    "cena.pozn": "Write to us and we will send you the current price.",
     "cena.vcene.1": "all transport from Puerto Maldonado (Peru) and back",
     "cena.nezahrnuje.1": "your travel to Puerto Maldonado",
     "cena.platba.1": "A deposit when booking. That secures your place.",

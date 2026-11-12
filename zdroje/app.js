@@ -227,8 +227,12 @@
       ctx.fill();
     }
 
-    /* časová osa náletu, v sekundách od začátku */
+    /* časová osa náletu, v sekundách od začátku (před zpomalením) */
     var T_OTOC = 1.8, T_BRAZ = 3.0, T_ACRE = 4.0, T_REKA = 5.6, T_KONEC = 6.5;
+    /* Celý nálet se přehrává pomaleji, aby se daly přečíst popisky
+       (Jižní Amerika, Brazílie, Acre, věta o řece). Při 1 trval 6,5 s
+       a Acre svítilo jen vteřinu. */
+    var ZPOMALENI_NALETU = 1.8;
 
     function kresliGlobus(cas) {
       ctx.fillStyle = GREEN;
@@ -763,7 +767,7 @@
       var sek = cas / 1000;
 
       if (faze === "globus") {
-        kresliGlobus((cas - zacatek) / 1000);
+        kresliGlobus((cas - zacatek) / 1000 / ZPOMALENI_NALETU);
         window.requestAnimationFrame(krok);
         return;
       }
